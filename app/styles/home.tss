@@ -1,0 +1,19 @@
+
+".container": {}
+
+".imagesView": {
+	height: "50%"
+}
+
+".optionListView": {
+	top: "50%",
+	height: Titanium.UI.FILL
+}
+
+"#label_app":{
+	font: {
+		fontSize: 18,
+	},
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}

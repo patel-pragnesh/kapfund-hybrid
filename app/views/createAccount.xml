@@ -1,0 +1,84 @@
+<Alloy>
+	<Window id="window" backgroundColor="#e2e3e4"  >
+		
+		<View id="keyboardContainer" module="keyboard.ui" top="0">
+			<View top="0" height="40" width="Alloy.Globals.screenWidth">
+					
+					<!--<ImageView image="stadium-min.jpg" width="400" height="200" top="-40" />-->
+					<View backgroundColor="#212c38" top="0" height="40">
+						
+						<View layout="horizontal" width="Titanium.UI.SIZE" visible="true" id="viewTitle">
+							<ImageView image="/images/Ballpark-Official-White.png" height="40" />	
+							<Label class="light-white titleLabel" id="lblLogoTitle" left="3">- New Account</Label>
+						</View>
+						
+						<Widget src="bpc.button" id="btnBack"
+							faicon="fa-angle-left" text="" left="-1" width="50" backgroundColor="#151d27"
+							class="loginButton navBars" onClick="close" />
+							
+						<!--<Label color="white" class="titleLabel">New Account</Label>-->
+					</View>
+					
+					<!--<View bottom="0" height="70">
+						<View backgroundColor="#b62c16" opacity="0.4" width="Titanium.UI.FILL" height="Titanium.UI.FILL"></View>
+						<Label color="white" class="newAccountLabel">New Account</Label>
+					</View>-->
+					
+					
+				</View>
+			<ScrollView id="winScrollView" top="50" class="container" showVerticalScrollIndicator="true" scrollType="vertical" height="Titanium.UI.FILL">
+				
+				<!--<View class="navView">
+					<Label left="3" class="linkLabel" onClick="close">BACK</Label>
+					<Label>NEW ACCOUNT</Label>
+			</View>-->
+				<View top="0" height="Titanium.UI.SIZE" width="90%" class="loginForm" layout="vertical">
+						<View layout="horizontal" height="Titanium.UI.SIZE">
+							<Label class="formItem">Email Address</Label>
+							<Label id="lblEmailMsg" text="" color="red"></Label>
+						</View>
+						<TextField top="3" class="formItem" keyboardType="EMAIL" id="txtEmail" width="Titanium.UI.FILL"
+							autocorrect="false" 
+							autocapitalization="Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE"
+							hintText="" returnKeyType="Titanium.UI.RETURNKEY_NEXT"
+							 />	
+						
+						<View top="10" layout="horizontal" height="Titanium.UI.SIZE">
+							<Label class="formItem">Password</Label>
+							<Label id="lblPasswordMsg" text="" color="red"></Label>
+						</View>
+						<TextField top="3" class="formItem" id="txtPassword" passwordMask="true"
+							returnKeyType="Titanium.UI.RETURNKEY_NEXT"
+							 width="Titanium.UI.FILL"  />
+						
+						<Label top="10" class="formItem">Verify Password</Label>
+						<TextField top="3" class="formItem" id="txtVerifyPassword" passwordMask="true"
+							returnKeyType="Titanium.UI.RETURNKEY_NEXT"
+							 width="Titanium.UI.FILL" />	
+						<Label top="10" class="formItem">First Name</Label>
+						<TextField top="3" class="formItem" id="txtFirstName" 
+							autocapitalization="Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS"
+							autocorrect="false"  width="Titanium.UI.FILL" returnKeyType="Titanium.UI.RETURNKEY_NEXT"  />
+						<Label top="10" class="formItem">Last Name</Label>
+						<TextField top="3" class="formItem" id="txtLastName" 
+							autocapitalization="Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS"
+							autocorrect="false"  width="Titanium.UI.FILL" returnKeyType="Titanium.UI.RETURNKEY_NEXT"  />
+						<Label top="10" class="formItem">Phone Number</Label>
+						<TextField top="3" class="formItem" id="txtPhoneNumber" maxLength="14" 
+							keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_DONE" width="Titanium.UI.FILL"  />
+	
+						<Widget src="bpc.button" top="10" width="100%"
+							faicon="fa-arrow-circle-right" text="Submit" 
+							class="submitButton" onClick="createNewAccount" />
+							
+						<View height="50"></View>
+					</View>
+				
+			
+			</ScrollView>
+	</View>
+	<View id="loadingView" visible="false" backgroundColor="black" opacity="0.5" top="0" left="0" width="100%" height="100%">
+		<Label color="white">SUBMITTING...</Label>
+	</View>
+</Window>
+</Alloy>

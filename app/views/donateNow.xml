@@ -1,0 +1,137 @@
+<Alloy>
+	<Window id="window" backgroundColor="#FFF" top="0">
+		<View height="60" top="0" backgroundColor="#212c38">
+			<View backgroundColor="#212c38" top="20" height="40">
+				<Label color="white" id="lblTitle" class="titleLabel">
+					Donate Now
+				</Label>
+				<Widget src="bpc.button" id="btnMenu" borderColor="#151d27"
+				faicon="fa-long-arrow-left" text="" left="-1" width="50" backgroundColor="#151d27"
+				class="loginButton navBars" onClick="backClicked" />
+			</View>
+		</View>
+		<ScrollView height="Titanium.UI.FILL" top="80"right="20" left="20" width="Titanium.UI.FILL" layout="vertical" contentHeight="Titanium.UI.SIZE" contentWidth="Titanium.UI.FILL">
+			<Label left="0" top="10" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+				SPORTS
+			</Label>
+			<TextField top="5" borderRadius="5" id="tf_sports" width="Titanium.UI.FILL" hintText="Select Sport" autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_DONE" editable="false" onClick="launchPicker">
+			</TextField>
+			<Label left="0" top="10" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+				Your Donation
+			</Label>
+			<View top="5" id="def_amount" height="60" width="Titanium.UI.FILL" borderRadius="5" borderColor="#898a8e" layout="horizontal">
+				<Label text="$5" class="amount" id="lbl_five" onClick="selectAmount"/>
+				<View backgroundColor="#898a8e" height="60" width="1" id="sep1" left="0"/>
+				<Label text="$10" class="amount" id="lbl_ten" onClick="selectAmount"/>
+				<View backgroundColor="#898a8e" height="60" width="1" id="sep2" left="0"/>
+				<Label text="$25" class="amount" id="lbl_twentyFive" onClick="selectAmount"/>
+				<View backgroundColor="#898a8e" height="60" width="1" id="sep3" left="0"/>
+				<Label text="$50" class="amount" id="lbl_fifty" onClick="selectAmount"/>
+				<View backgroundColor="#898a8e" height="60" width="1" id="sep4" left="0"/>
+				<Label text="OTHER" class="amount" id="lbl_hundred" onClick="selectAmount"/>
+			</View>
+			<!-- <View id="custom_amount" top="20" height="70" width="Titanium.UI.FILL" borderRadius="5" borderColor="#898a8e">
+			<Label text="$ Custom Amount" id="lbl_amount"/>
+			<TextField id="tf_amount"/>
+			</View> -->
+			<Label left="0" top="10" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+				Make this a monthly gift
+			</Label>
+			<View top="5" id="custom_amount" height="90" width="Titanium.UI.FILL" borderRadius="5" borderColor="#898a8e">
+				<ImageView id="img_check" onClick="selectMonthlyGift"/>
+				<Label left="60" right="10" id="lbl_gift" text="Your sustaining gift will automatically repeat each month until you decide to cancel it. Monthly gifts provide vital funds that supports the schools mission of keeping athletes a priority by saving sports."/>
+			</View>
+			<Label left="0" top="10" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+				Your Information
+			</Label>
+			<View top="5" layout="vertical" height="Titanium.UI.SIZE" width="Titanium.UI.FILL" borderRadius="5" borderColor="#898a8e">
+				<Label  left="10" right="10"  top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+					First Name *
+				</Label>
+				<TextField  left="10" right="10"  id="txt_firstName" borderRadius="5" width="Titanium.UI.FILL"  autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_NEXT"/>
+				<Label  left="10" right="10"  top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+					Last Name *
+				</Label>
+				<TextField  left="10" right="10"  id="txt_lastName" borderRadius="5" width="Titanium.UI.FILL"  autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_NEXT"/>
+				<Label  left="10" right="10"  top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+					Email Address *
+				</Label>
+				<TextField  left="10" right="10"  id="txt_email" borderRadius="5" width="Titanium.UI.FILL"  autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_NEXT"/>
+				<Label text="We’ll use your email to send you a receipt of your tax deductible donation." id="info_email" top="2" color="#000"/>
+				<Label  left="10" right="10"  top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+					Phone
+				</Label>
+				<TextField  left="10" right="10"  id="txt_phone" borderRadius="5" width="Titanium.UI.FILL"  autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_NEXT"/>
+				<View height="10"/>
+			</View>
+			<Label left="0" top="10" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+				Credit Card Information
+			</Label>
+			<View top="5" layout="vertical" height="Titanium.UI.SIZE" width="Titanium.UI.FILL" borderRadius="5" borderColor="#898a8e">
+				<Label left="10" right="10" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal" >
+					Card Number
+				</Label>
+				<View height="Titanium.UI.SIZE"  left="10" right="10" >
+					<TextField borderRadius="5" left="0" right="41" top="0" id="txtNumber" width="Titanium.UI.FILL" hintText="Card Number"
+					maxLength="19" keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_NEXT">
+					</TextField>
+					<Widget src="bpc.button" id="btnCamera" height="40" visible="true" top="0" right="0"
+					faicon="fa-camera" text="" width="40" borderWidth="0"
+					class="cameraButton"
+					onClick="takePicture"
+					/>
+				</View>
+				<Label  left="10" right="10"  top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+					Expiration Date
+				</Label>
+				<View layout="horizontal" height="Titanium.UI.SIZE"  left="10" right="10" >
+					<TextField borderRadius="5" id="txtMonth" keyboardType="NUMBER_PAD" maxLength="2" hintText="Month" width="80">
+					</TextField>
+					<TextField borderRadius="5" id="txtYear"left="3" width="80" keyboardType="NUMBER_PAD" maxLength="4" minLength="2" hintText="Year" value="">
+					</TextField>
+				</View>
+				<View layout="horizontal" height="Titanium.UI.SIZE"  left="10" right="10" >
+					<View layout="vertical" height="Titanium.UI.SIZE" width="44%" left="0">
+						<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+							Security Code
+						</Label>
+						<TextField borderRadius="5" id="txtSecurityCode" width="Titanium.UI.FILL" hintText="CVV" maxLength="4" keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_NEXT">
+						</TextField>
+					</View>
+					<View height="Titanium.UI.SIZE" width="10%">
+					</View>
+					<View layout="vertical" height="Titanium.UI.SIZE" width="44%" right="0">
+						<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+							Zip Code
+						</Label>
+						<TextField borderRadius="5" id="txtZip" width="Titanium.UI.FILL" hintText="Zip Code" maxLength="5" keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_NEXT">
+						</TextField>
+					</View>
+				</View>
+				<Label  left="10" right="10"  top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">
+					Card Holder Name
+				</Label>
+				<TextField  left="10" right="10"  id="txtName" borderRadius="5" width="Titanium.UI.FILL" hintText="Card Holder Name" autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_DONE">
+				</TextField>
+				<View height="10"/>
+			</View>
+			<!-- <Button id="btn_giveNow" title="Give Now" height="45" width="Titanium.UI.FILL" top="15" color="#FFF" borderRadius="10" backgroundColor="#212c38"/> -->
+			<!-- <Widget src="bpc.button" id="btn_giveNow" top="0" height="35" onClick="addCreditCard"
+			faicon="fa-credit-card" text="Credit Card" borderWidth="0" backgroundColor="#ba2731"
+			class="redButton normal"  top="15"/> -->
+			<Widget src="bpc.button" id="btn_paypal" top="10" height="35" onClick="addPaymentPaypal"
+			faicon="fa-paypal" text="Paypal" borderWidth="0"
+			class="greenButton normal" backgroundColor="#217cb6" top="10"/>
+			<Button id="btn_giveNow" title="Donate" height="35" width="80%" top="10" color="#FFF" backgroundColor="#212c38" onClick="addCard"/>
+			<Label text="You will receive a receipt by email."  top="10" color="#000"/>
+			<View height="15"/>
+		</ScrollView>
+		<View id="loadingView" visible="false"  top="0" left="0" width="100%" height="100%">
+			<View backgroundColor="black" opacity="0.6">
+			</View>
+			<Label color="white" id="lblLoading">
+				LOADING...
+			</Label>
+		</View>
+	</Window>
+</Alloy>

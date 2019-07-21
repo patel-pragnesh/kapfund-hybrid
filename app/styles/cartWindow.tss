@@ -1,0 +1,17 @@
+
+".container": {}
+
+"#lbl_raised":{
+	font: {
+		fontSize: 12
+	},
+	color: "#000"
+}
+
+
+"#lbl_goal":{
+	font: {
+		fontSize: 12
+	},
+	color: "#000"
+}

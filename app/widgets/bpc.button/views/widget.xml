@@ -1,0 +1,10 @@
+<Alloy>
+	<View id="outer" 
+		 width="80%" height="60" backgroundColor="#5568a2"
+		onTouchstart="_onTouchstart" onTouchcancel="_onTouchend" onTouchend="_onTouchend">
+		<View id="inner" layout="horizontal" height="Titanium.UI.FILL" width="Titanium.UI.SIZE">
+			<Label id="label" height="Titanium.UI.FILL" color="white" touchEnabled="false"></Label>
+			<Widget id="fa" src="com.mattmcfarland.fontawesome" instaParse="false"/>	
+		</View>
+	</View>
+</Alloy>

@@ -1,0 +1,66 @@
+<Alloy>
+	<ScrollView backgroundColor="white">
+		<View layout="vertical">
+			<View onClick="openFAQ" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#5568a2" backgroundColor="#5568a2"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large" height="Titanium.UI.SIZE" text="\uf059"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">FAQ</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			
+			<View onClick="openServiceTerms" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#F8B700" backgroundColor="#F8B700"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large" height="Titanium.UI.SIZE" text="\uf0e3"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Service Terms and Conditions</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC"></View>
+			</View>
+			
+			<View onClick="openContactUs" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#5568a2" backgroundColor="#5568a2"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large" height="Titanium.UI.SIZE" text="\uf0e0"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Contact Us</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC"></View>
+			</View>
+			
+			<View onClick="openRateUS" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#5568a2" backgroundColor="#5568a2"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large" height="Titanium.UI.SIZE" text="\uf005"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Rate Us</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC"></View>
+			</View>
+			
+			<View height="50"></View>
+		</View>
+		
+	</ScrollView>
+	
+	
+</Alloy>

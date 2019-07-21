@@ -1,0 +1,6 @@
+dist/*
+i18n/*
+Resources/*
+platform/*
+build/*
+*.DS_Store

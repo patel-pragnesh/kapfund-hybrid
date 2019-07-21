@@ -1,0 +1,12 @@
+<Alloy>
+	<View class="container">
+		<View layout="vertical" height="Titanium.UI.SIZE">
+			<View class="viewButton">
+				<Label id="lblViewOrders">View Your Orders (0)</Label>
+			</View>
+			<View class="viewButton" top="10" onClick="beginNewOrder">
+				<Label>BEGIN NEW ORDER</Label>
+			</View>
+		</View>
+	</View>
+</Alloy>

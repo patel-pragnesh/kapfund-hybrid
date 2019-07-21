@@ -1,0 +1,110 @@
+<Alloy>
+	<Window id="window" exitOnClose="true">
+		<View id="keyboardContainer" module="keyboard.ui" top="0">
+			<ScrollView id="scrollContainer" top="0" layout="vertical" scrollType="vertical" id="portrait" height="Titanium.UI.FILL">
+				<View id="container" class="container" height="100%">
+					<View width="Alloy.Globals.screenWidth" height="Titanium.UI.FILL" bottom="200">
+						<ImageView id="img1" image="/images/stadium-min.jpg" width="1601" opacity="1" />
+						<ImageView id="img2" image="/images/baseballField.jpg" width="2560" opacity="1" />
+						<ImageView id="img3" image="/images/basketball.jpg" width="1698" opacity="1" />
+						<!-- <ImageView id="img4" image="/images/soccer.jpg" width="1800" opacity="1" /> -->
+						<ImageView id="img4" image="/images/stadium-min.jpg" width="1600" opacity="1" />
+						<View opacity="0.33" backgroundColor="#000">
+						</View>
+						<ImageView image="/images/Ballpark-Official-White.png" width="300"  />
+					</View>
+					<View id="btn_fb" backgroundColor="#212c38" bottom="200" width="Titanium.UI.FILL" height="100">
+						<Widget src="bpc.button"
+						faicon="fa-sign-in" text="Sign In" top="20"
+						class="loginButton" onClick="toggleUserSignIn" />
+					</View>
+					<View height="250" bottom="0">
+						<View height="250" width="Alloy.Globals.screenWidth">
+							<View id="buttonView" width="Alloy.Globals.screenWidth" right="0%">
+								<View id="loginWrapper" height="100" top="50" left="0" width="Titanium.UI.FILL">
+									<Widget src="bpc.button" id="btnNewAcct"
+									faicon="fa-plus-circle" text="Create Account" top="20"
+									class="createAcctButton" onClick="showNewAccount" />
+								</View>
+								<View id="createAcctWrapper" backgroundColor="#212c38" top="150" width="Titanium.UI.FILL">
+									<Widget src="bpc.button" id="btnFB"
+									faicon="fa-facebook-square" text="Facebook" top="20"
+									class="createAcctButton" onClick="loginFB" />
+								</View>
+								<!--
+								<View id="buttonView" width="Alloy.Globals.screenWidth" right="0%">
+								<View id="loginWrapper" height="60" top="50" left="0" width="Titanium.UI.FILL">
+								<Widget src="bpc.button"
+								faicon="fa-sign-in" text="Sign In" top="20"
+								class="loginButton" onClick="toggleUserSignIn" height=45/>
+								</View>
+								<View id="createAcctWrapper" height="60" top="110" width="Titanium.UI.FILL">
+								<Widget src="bpc.button" id="btnNewAcct"
+								faicon="fa-plus-circle" text="Create Account" top="20"
+								class="createAcctButton" onClick="showNewAccount" height=45/>
+								</View>
+								<View id="createAcctWrapper" height="60" top="170" width="Titanium.UI.FILL" id="btnFB">
+								<Widget src="bpc.button" id="btnFB"
+								faicon="fa-facebook-square" text="Facebook" top="20"
+								class="createAcctButton" onClick="showNewAccount" height=45/>
+								</View>
+								</View>-->
+							</View>
+							<View opacity="0" visible="false" id="loginView" layout="vertical" height="250" left="0" width="Alloy.Globals.screenWidth" backgroundColor="#5568a2">
+								<View layout="horizontal" height="Titanium.UI.SIZE" top="5">
+									<Switch id="cb_runner">
+									</Switch>
+									<Label left="10" class="formItem">
+										Are you a runner?
+									</Label>
+								</View>
+								<View layout="horizontal" height="Titanium.UI.SIZE" top="5">
+									<Label class="formItem">
+										Email
+									</Label>
+									<Label id="lblEmailMsg" text="" color="red">
+									</Label>
+								</View>
+								<TextField top="1" class="formItem" keyboardType="EMAIL" id="txtEmail" autocorrect="false"
+								autocapitalization="Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE"
+								hintText="" right="10" returnKeyType="Titanium.UI.RETURNKEY_NEXT"
+								>
+								</TextField>
+								<View top="10" height="Titanium.UI.SIZE">
+									<Label left="10" class="formItem">
+										Password
+									</Label>
+									<Label onClick="showForgotPasswordView" right="50" class="linkLabel">
+										Forgot Password?
+									</Label>
+								</View>
+								<View top="1" class="formItem" height="Titanium.UI.SIZE">
+									<TextField id="txtPassword" hintText="" autocorrect="false"
+									passwordMask="true" left="0" right="50" returnKeyType="Titanium.UI.RETURNKEY_DONE"  />
+									<Label height="45" color="#f1f3f4" onClick="toggleShowPassword" id="lblPeek" right="0" width="50" class="fa-eye" textAlign="center">
+									</Label>
+								</View>
+								<!--<TextField top="1" class="formItem" id="txtPassword" hintText=""
+								passwordMask="true" right="10" returnKeyType="Titanium.UI.RETURNKEY_DONE"  />-->
+								<View width="Titanium.UI.FILL" height="Titanium.UI.FILL"
+								>
+									<Widget src="bpc.button" width="45%" left="10" height="45"
+									faicon="fa-chevron-left" text="Back"
+									class="createAcctButton" onClick="toggleUserSignIn" />
+									<Widget src="bpc.button" width="45%" right="10" height="45"
+									faicon="fa-sign-in" text="Sign In"
+									class="loginButton" onClick="signIn" />
+								</View>
+							</View>
+						</View>
+					</View>
+				</View>
+			</ScrollView>
+		</View>
+		<View id="loadingView" visible="false" width="100%" top="0" left="0" height="100%" backgroundColor="black" opacity="0.5">
+			<Label>
+				LOADING...
+			</Label>
+		</View>
+	</Window>
+</Alloy>

@@ -1,0 +1,4 @@
+<Alloy>
+	<ListItem template="template" ItemName:text="{itemName}">
+	</ListItem>
+</Alloy>

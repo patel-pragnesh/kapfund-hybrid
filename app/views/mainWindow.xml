@@ -1,0 +1,180 @@
+<Alloy>
+	<Model src="venue" />
+	<Model src="vendor"/>
+	<Model src="settings" name="settings" />
+	<Window id="window" backgroundColor="#e2e3e4" top="0">
+		<View height="40" top="0">
+			<View backgroundColor="#212c38" top="0" height="40">
+				<!--<View layout="horizontal" width="Titanium.UI.SIZE">
+				<ImageView image="Ballpark-Official-White.png" height="40" />
+				<Label color="white" id="lblTitle" class="titleLabel" left="3">- Home</Label>
+				</View>-->
+				<Label color="white" id="lblTitle" class="titleLabel">
+					Home
+				</Label>
+				<View layout="horizontal" width="Titanium.UI.SIZE" visible="false" id="viewTitle">
+					<ImageView image="/images/Ballpark-Official-White.png" height="40" />
+					<Label class="light-white titleLabel" id="lblLogoTitle" left="3">
+						- Select Vendor
+					</Label>
+				</View>
+				<Widget src="bpc.button" id="btnBack"
+				faicon="fa-angle-left" text="" left="0" width="50" backgroundColor="#151d27"
+				class="loginButton navBars" onClick="goBack" />
+				<Widget src="bpc.button" id="btnMenu" borderColor="#151d27"
+				faicon="fa-bars" text="" right="-1" width="50" backgroundColor="#151d27"
+				class="loginButton navBars" onClick="showNavMenu" />
+			</View>
+		</View>
+		<View class="container" top="40" height="Titanium.UI.FILL" onClick="hideNavMenu">
+			<View id="contentView">
+			</View>
+		</View>
+		<View id="notificationView" opacity="0" visible="false" height="40" bottom="42" borderWidth="0"  backgroundColor="#ba2731">
+			<Label id="lblMsg" color="white">
+				NOTIFICATIONS APPEAR HERE
+			</Label>
+		</View>
+		<View id="venueInfoView" height="0" bottom="0" borderWidth="1" opacity="1" backgroundColor="#212c38" visible="{settings.isCartEmpty}">
+			<Label id="lblNoVendor" visible="true" top="3" left="3" class="current-vendor-label">
+				Vendor: No vendor currently selected
+			</Label>
+			<View id="viewVendorInfo" layout="horizontal" top="3" left="3" visible="false" width="80%">
+				<View layout="vertical" left="3" width="Titanium.UI.SIZE" >
+					<Label id="lblCurrVendor" class="current-vendor-label" left="0" text="Current Vendor: {venue.name}">
+					</Label>
+					<Label class="current-vendor" left="0"  text="{vendor.name} - {vendor.description}">
+					</Label>
+					<Label height="Titanium.UI.SIZE" id="lblDeliveryNotAvail" class="current-vendor">
+						Delivery is NOT available with this vendor.
+					</Label>
+					<View id="viewUserLocation" layout="vertical" height="Titanium.UI.SIZE" width="100%">
+						<Label id="lblUserLocationTitle" class="current-vendor" width="Titanium.UI.SIZE">
+							Vendor will deliver to you at:
+						</Label>
+						<View layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+							<Widget src="bpc.button" top="0" onClick="editLocation"
+							faicon="fa-pencil-square-o" width="25" height="20"
+							text=""
+							class="transparentButton smallButton" />
+							<View layout="vertical" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+								<Label id="lblUserSection" class="current-vendor">
+									Section 102
+								</Label>
+								<Label id="lblUserRow" class="current-vendor">
+									Row 33
+								</Label>
+								<Label id="lblUserSeat" class="current-vendor">
+									Seat 5
+								</Label>
+							</View>
+						</View>
+					</View>
+					<Widget src="bpc.button" id="btnChangeOrderType"
+					onClick="changeOrderType"
+					text="Change to Pickup" top="6"
+					class="lightBlueButton smallButton" />
+				</View>
+			</View>
+			<Widget src="bpc.button" id="btnExpandVendor"
+			faicon="fa-angle-double-up" text="" right="-1" width="50" backgroundColor="#212c38"
+			class="loginButton" onClick="toggleVendorInfoUp" />
+			<Widget src="bpc.button" id="btnCollapseVendor" visible="false" top="0" height="40"
+			faicon="fa-angle-double-down" text="" right="-1" width="50" backgroundColor="#212c38"
+			class="loginButton" onClick="toggleVenodrInfoDown" />
+		</View>
+		<View id="cartInfoView" height="40" bottom="0" borderWidth="1" borderColor="#7a1920" opacity=".95" backgroundColor="#ba2731" visible="{settings.isItemInCart}">
+			<Label class="current-vendor-label" text="{settings.cartCountText}">
+			</Label>
+			<Widget src="bpc.button" id="btnOpenCart" borderColor="#7a1920"
+			faicon="fa-shopping-cart" text="" right="-1" width="50"
+			class="redButton" onClick="openCart" />
+		</View>
+		<View backgroundColor="transparent" width="100%" height="100%" id="navMenu" top="0" left="0" visible="false">
+			<View backgroundColor="transparent" onClick="hideNavMenu">
+			</View>
+			<ScrollView scrollsToTop="false" right="0" top="0" backgroundColor="#151d27" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+				<View layout="vertical" top="0" right="0" height="Titanium.UI.SIZE" width="200">
+					<Widget src="bpc.button" id="btnCloseMenu" borderColor="#151d27" backgroundColor="#151d27"
+					faicon="fa-bars" top="0" text="" right="-1" height="40" width="50"
+					class="loginButton navBars" onClick="hideNavMenu" />
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-home" top="0" text="Home" right="20" height="40"
+					class="navMenuButton" onClick="navHome_click" />
+					<!-- <Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-cutlery" top="0" text="Menu" right="20" height="40"
+					class="navMenuButton" onClick="navVendorMenu_click" /> -->
+					
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-ticket" top="0" text="Tickets" right="20" height="40"
+					class="navMenuButton" onClick="navVendorMenu_click" />
+					
+					<!-- <Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-search" top="0" text="Change Vendor" right="20" height="40"
+					class="navMenuButton" onClick="navChangeVendor_click" /> -->
+					
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-user" top="0" text="Referrals" right="20" height="40"
+					class="navMenuButton" onClick="navChangeVendor_click" />
+					
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-history" top="0" text="Orders" right="20" height="40"
+					class="navMenuButton" onClick="navOrders_click" />
+					<Widget src="bpc.button" id="btnMenuCart" borderColor="#151d27" padding="3"
+					faicon="fa-shopping-cart" top="0" text="Cart" right="20" height="40"
+					class="navMenuButton" onClick="navCart_click" />
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-gear" top="0" text="Settings" right="20" height="40"
+					class="navMenuButton" onClick="navSettings_click" />
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-info-circle" top="0" text="About" right="20" height="40"
+					class="navMenuButton" onClick="navAbout_click" />
+					<View height="25">
+					</View>
+					<Widget src="bpc.button" borderColor="#151d27"
+					faicon="fa-sign-out" top="0" text="Sign Out" height="40" width="100%" borderColor="#ba2731"
+					class="redButton" onClick="navSignout_click" />
+				</View>
+			</ScrollView>
+		</View>
+		<View backgroundColor="transparent" width="100%" height="100%" id="navMenuRunner" top="0" left="0" visible="false">
+			<View backgroundColor="transparent" onClick="hideNavMenuRunner">
+			</View>
+			<ScrollView scrollsToTop="false" right="0" top="0" backgroundColor="#151d27" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+				<View layout="vertical" top="0" right="0" height="Titanium.UI.SIZE" width="200">
+					<Widget src="bpc.button" id="btnCloseMenu" borderColor="#151d27" backgroundColor="#151d27"
+					faicon="fa-bars" top="0" text="" right="-1" height="40" width="50"
+					class="loginButton navBars" onClick="hideNavMenu" />
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-home" top="0" text="Home" right="20" height="40"
+					class="navMenuButton" onClick="navHome_click" />
+					
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-history" top="0" text="Orders" right="20" height="40"
+					class="navMenuButton" onClick="navOrders_click" />
+					
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-gear" top="0" text="Settings" right="20" height="40"
+					class="navMenuButton" onClick="navSettings_click" />
+					<Widget src="bpc.button" borderColor="#151d27" padding="3"
+					faicon="fa-info-circle" top="0" text="About" right="20" height="40"
+					class="navMenuButton" onClick="navAbout_click" />
+					<View height="25">
+					</View>
+					<Widget src="bpc.button" borderColor="#151d27"
+					faicon="fa-sign-out" top="0" text="Sign Out" height="40" width="100%" borderColor="#ba2731"
+					class="redButton" onClick="navSignout_click" />
+				</View>
+			</ScrollView>
+		</View>
+		<Require id="locationDialog" type="view" src="locationDialog">
+		</Require>
+		<View id="loadingView" visible="false" top="0" left="0" width="100%" height="100%">
+			<View backgroundColor="black" opacity="0.6">
+			</View>
+			<Label color="white" id="lblLoading">
+				LOADING...
+			</Label>
+		</View>
+	</Window>
+</Alloy>

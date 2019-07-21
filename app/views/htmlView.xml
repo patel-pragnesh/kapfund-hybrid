@@ -1,0 +1,5 @@
+<Alloy>
+	<View class="container">
+		<WebView id="webView" willHandleTouches="false" width="100%"></WebView>
+	</View>
+</Alloy>

@@ -1,0 +1,78 @@
+".container": {}
+
+
+
+".amount": {
+	height: "60",
+	width: "19%",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	color: "#898a8e",
+	font: {
+		fontSize: "18",
+		fontWeight: "normal"
+	},
+	left: 0
+}
+
+"#lbl_hundred": {
+	height: "60",
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	color: "#898a8e",
+	font: {
+		fontSize: "16",
+		fontWeight: "normal"
+	}
+}
+
+"#info_email": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "#000",
+	font: {
+		fontSize: "13",
+		fontWeight: "normal"
+	},
+	left: 10,
+	right: 10
+}
+
+"#lbl_gift": {
+	width: Titanium.UI.FILL,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: "#000",
+	font: {
+		fontSize: "13",
+		fontWeight: "normal"
+	}
+}
+"#img_check":{
+	image: '/images/select.png',
+	width: 40,
+	height: 40,
+	left: 10
+}
+"#lbl_amount":{
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.SIZE,
+	top: 5,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	color: "#898a8e",
+	font: {
+		fontSize: "12",
+		fontWeight: "normal"
+	}
+}
+
+"#tf_amount":{
+	height: Titanium.UI.SIZE,
+	width: 200,
+	top: 30,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	color: "#898a8e",
+	font: {
+		fontSize: "18",
+		fontWeight: "normal"
+	},
+	hintText: "$0.00"
+}

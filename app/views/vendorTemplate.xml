@@ -1,0 +1,15 @@
+<Alloy>
+	<ItemTemplate name="vendorTemplate" height="65" >
+		<View layout="absolute" top="0">
+			<View layout="vertical" left="10">
+				<View layout="horizontal" left="0" height="Titanium.UI.SIZE">
+					<Label class="venue-title" bindId="venueName">Franklin Highschool</Label>
+					<Label text=" - "></Label>
+					<Label class="venue-title" bindId="vendorName">Football stadium</Label>
+				</View>
+				<Label left="0" class="venue-address" bindId="vendorDescription">By home team enzone</Label>
+				<Label bindId="orderTypesText" class="order-types">PICKUP ONLY</Label>
+			</View>
+		</View>
+	</ItemTemplate>
+</Alloy>

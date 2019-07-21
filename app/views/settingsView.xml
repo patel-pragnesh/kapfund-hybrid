@@ -1,0 +1,138 @@
+<Alloy>
+	
+	<ScrollView backgroundColor="white">
+		<View layout="vertical">
+			<View onClick="openAccount" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#AAA" backgroundColor="#AAA"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE" text="\uf007"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Account</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			
+			<View onClick="openChangePassword" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#ba2731" backgroundColor="#ba2731"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE" text="\uf023"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Change Password</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			
+			<View onClick="openPaymentMethods" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#212c38" backgroundColor="#212c38"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE" text="\uf09d"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Payment Methods</Label>
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			
+			<View height="50"></View>
+			
+			
+			<!-- **switch options** -->
+			<!-- Remember Me -->
+			<View height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#0E0" backgroundColor="#0E0"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE" text="\uf007"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Remember Me</Label>
+				</View>
+				
+				<View width="80%">
+					<Switch id="switchRem" onChange="changeRem"  right="0" value="true"></Switch>	
+				</View>
+				
+				
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			<!-- Send Text Alerts -->
+			<View height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#5568a2" backgroundColor="#5568a2"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE" text="\uf075"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Send Text Alerts</Label>
+				</View>
+				<View width="80%">
+					<Switch id="switchText" onChange="changeText"  right="0" value="true"></Switch>	
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			<!-- Send e-mail Alerts -->
+			<View visible="false" height="75">
+				<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+					<View width="30" height="30" bindId="Outer"
+						 borderRadius="3" borderWidth="1" borderColor="#5568a2" backgroundColor="#5568a2"
+						>
+						<Label backgroundColor="transparent"  
+							bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE" text="\uf0e0"></Label>
+					</View>
+					
+					<Label left="15" class="large" color="#222" bindId="Name">Send E-Mail Alerts</Label>
+				</View>
+				<View width="80%">
+					<Switch backgroundColor="#444" right="0" value="true"></Switch>	
+				</View>
+				<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+			</View>
+			
+			<View height="100"></View>
+		</View>
+		
+	</ScrollView>
+	<!--
+	<ListView visible="false" id="lstSettings" defaultItemTemplate="settingTemplate" separatorColor="transparent" allowsSelection="false">
+		<Templates>
+			<ItemTemplate name="settingTemplate" height="75" >
+				<View onClick="settingClick">
+					<View left="25"layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+						<View width="30" height="30" bindId="Outer"
+							 borderRadius="3" borderWidth="1" borderColor="red"
+							>
+							<Label backgroundColor="transparent"  
+								bindId="Icon" color="white" class="fontAwesome large light-black" height="Titanium.UI.SIZE"></Label>
+						</View>
+						
+						<Label left="15" class="large" color="#222" bindId="Name"></Label>
+					</View>
+					<View width="80%" bottom="0" height="1" backgroundColor="#C8C7CC" ></View>
+				</View>
+			</ItemTemplate>
+		</Templates>
+		
+		<ListSection id="lstOptions">
+			<ListItem Name:text="Account" Icon:text="\uf007" Outer:backgroundColor="#AAA" Outer:borderColor="#AAA"></ListItem>
+			<ListItem Name:text="Change Password" Icon:text="\uf023" Outer:backgroundColor="#ba2731" Outer:borderColor="#ba2731"></ListItem>
+			<ListItem Name:text="Payment Methods" Icon:text="\uf09d" Outer:backgroundColor="#212c38" Outer:borderColor="#212c38"></ListItem>
+		</ListSection>
+	</ListView>-->
+	
+	
+</Alloy>

@@ -1,0 +1,7 @@
+<Alloy>
+	<ItemTemplate name="template" height="100">
+		<View layout="absolute" left="10">
+			<Label left="50" color="white" bindId="ItemName"></Label>
+		</View>
+	</ItemTemplate>
+</Alloy>

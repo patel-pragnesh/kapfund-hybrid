@@ -1,0 +1,87 @@
+<Alloy>
+	<Model src="venue" />
+	<Model src="vendor"/>
+	<Model src="settings" />
+	
+	<Window id="window" backgroundColor="#e2e3e4" top="0">
+		<View id="keyboardContainer" module="keyboard.ui" top="0">
+			<View height="40" top="0">
+				
+				
+				<View backgroundColor="#212c38" top="0" height="40">
+					<View layout="horizontal" width="Titanium.UI.SIZE" visible="true" id="viewTitle">
+						<ImageView image="/images/Ballpark-Official-White.png" height="40" />	
+						<Label class="light-white titleLabel" id="lblLogoTitle" left="3">- Credit Card</Label>
+					</View>
+					<Widget src="bpc.button" id="btnBack" 
+						faicon="fa-angle-left" text="" left="0" width="50" backgroundColor="#151d27"
+						class="loginButton navBars" onClick="goBack" />
+				</View>			
+			</View>
+			<ScrollView id="scrollView" class="container"  bottom="100" top="40">
+				<View layout="vertical" height="Ti.UI.FILL" width="80%" >
+					
+					<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal" >Card Number</Label>
+					<View height="Titanium.UI.SIZE">
+						<TextField left="0" right="41" top="0" id="txtNumber" width="Titanium.UI.FILL" hintText="Card Number" 
+							maxLength="19" keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_NEXT"></TextField>
+						<Widget src="bpc.button" id="btnCamera" height="40" visible="true" top="0" right="0"
+							faicon="fa-camera" text="" width="40" borderWidth="0"
+							class="cameraButton"
+							onClick="takePicture"
+							 />
+						
+					</View>
+					
+					
+					<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">Expiration Date</Label>
+					<View layout="horizontal" height="Titanium.UI.SIZE">
+						<TextField id="txtMonth" keyboardType="NUMBER_PAD" maxLength="2" hintText="Month" width="80"></TextField>
+						<TextField id="txtYear"left="3" width="80" keyboardType="NUMBER_PAD" maxLength="4" minLength="2" hintText="Year" value=""></TextField>
+					</View>
+					
+					<View layout="horizontal" height="Titanium.UI.SIZE">
+						<View layout="vertical" height="Titanium.UI.SIZE" width="44%" left="0">
+							<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">Security Code</Label>
+							<TextField id="txtSecurityCode" width="Titanium.UI.FILL" hintText="CVV" maxLength="4" keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_NEXT"></TextField>	
+						</View>
+						<View height="Titanium.UI.SIZE" width="10%"></View>
+						<View layout="vertical" height="Titanium.UI.SIZE" width="44%" right="0">
+							<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">Zip Code</Label>
+							<TextField id="txtZip" width="Titanium.UI.FILL" hintText="Zip Code" maxLength="5" keyboardType="NUMBER_PAD" returnKeyType="Titanium.UI.RETURNKEY_NEXT"></TextField>
+						</View>
+					</View>
+					
+					<Label left="0" top="5" width="Titanium.UI.SIZE" color="#3b1213" class="normal">Card Holder Name</Label>
+					<TextField id="txtName" width="Titanium.UI.FILL" hintText="Card Holder Name" autocorrect="false" returnKeyType="Titanium.UI.RETURNKEY_DONE"></TextField>
+					
+					<View id="viewSaveCard" layout="horizontal" height="Titanium.UI.SIZE" top="10" onTouchstart="toggleSaveCard">
+						<View height="20" width="20" borderWidth="2" borderColor="#aeaeae" borderRadius="2">
+							
+								<Label id="chkSaveCard" visible="false" icon="fa-check" height="Titanium.UI.FILL" color="#212c38" touchEnabled="false"></Label>
+								<Widget id="fa" src="com.mattmcfarland.fontawesome" />
+							
+						</View>
+						<Label left="3" class="normal">Save Card Securely?</Label>
+					</View>
+					
+					
+				</View>
+			</ScrollView>
+			<View id="notificationView" opacity="0" visible="false" height="40" bottom="82" borderWidth="1" backgroundColor="#ba2731">
+				<Label id="lblMsg" color="white">NOTIFICATIONS APPEAR HERE</Label>
+			</View>
+			<View id="cartActionsView" height="80" bottom="0" borderWidth="0">
+				<Widget src="bpc.button" id="btnSubmit" height="40" visible="true" top="0"
+                            onClick="addCard"
+							faicon="fa-plus-circle" text="Add Card" width="80%" borderWidth="0"
+							class="redButton" />
+			</View>
+			<View id="loadingView" visible="false"  top="0" left="0" width="100%" height="100%">
+				<View backgroundColor="black" opacity="0.6">
+				</View>
+				<Label color="white" id="lblLoading">LOADING...</Label>
+			</View>
+		</View>
+	</Window>
+</Alloy>

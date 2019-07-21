@@ -1,0 +1,163 @@
+<Alloy>
+	<Model src="venue" />
+	<Model src="vendor"/>
+	<Model src="settings" />
+	<Window id="window" backgroundColor="#e2e3e4" top="0">
+		<View height="40" top="0">
+			<View backgroundColor="#212c38" top="0" height="40">
+				<View layout="horizontal" width="Titanium.UI.SIZE" visible="true" id="viewTitle">
+					<ImageView image="/images/Ballpark-Official-White.png" height="40" />
+					<Label class="light-white titleLabel" id="lblLogoTitle" left="3">- My Cart</Label>
+				</View>
+				<Widget src="bpc.button" id="btnBack"
+				faicon="fa-angle-left" text="" left="0" width="50" backgroundColor="#151d27"
+				class="loginButton navBars" onClick="goBack" />
+			</View>
+		</View>
+		<ScrollView id="scrollView" class="container"  bottom="123" top="40" scrollType="vertical">
+			<View width="Alloy.Globals.screenWidth" height="40" top="0" backgroundColor="#000">
+				<Label id="lbl_ticker" class="lbl_ticker"/>
+			</View>
+			<View layout="vertical" height="Ti.UI.FILL" >
+				<Label top="60" id="lblAlcoholWarning" height="0" visible="false" class="size9 bold" color="#3b1213">* Please be prepared to show I.D. for alcoholic beverages.</Label>
+				<View layout="vertical" backgroundColor="#f1f3f4" width="80%" height="Titanium.UI.SIZE" id="cartView">
+					<View height="10"></View>
+					<View height="Titanium.UI.SIZE">
+
+						<Label left="10" color="#3b1213" class="bold">Hot Dog</Label>
+						<Label right="20" color="#3b1213" class="bold">$3.00</Label>
+					</View>
+					<View height="Titanium.UI.SIZE">
+						<Label left="15" color="#3b1213" class="small">Mustard</Label>
+						<Label right="25" color="#3b1213" class="small">$0.15</Label>
+					</View>
+					<View height="Titanium.UI.SIZE">
+						<Label left="15" color="#3b1213" class="small">Relish</Label>
+						<Label right="25" color="#3b1213" class="small">$0.15</Label>
+					</View>
+					<View height="Titanium.UI.SIZE" top="5" layout="horizontal" right="0" width="Titanium.UI.SIZE">
+						<Widget src="bpc.button" visible="true"
+						faicon="fa-minus-circle" text="" width="25" backgroundColor="" height="25" borderWidth="0"
+						color="#3b1213" />
+						<Label backgroundColor="e2e3e4" width="40" textAlign="center" class="small" height="25" color="#3b1213">x 1</Label>
+						<Widget src="bpc.button"
+						faicon="fa-plus-circle" text="" width="25" backgroundColor="" height="25" borderWidth="0"
+						color="#3b1213" />
+					</View>
+					<View height="Titanium.UI.SIZE" top="5">
+						<Label left="10" color="#3b1213" class="bold">20oz Coke</Label>
+						<Label right="20" color="#3b1213" class="bold">$2.00</Label>
+					</View>
+					<View height="Titanium.UI.SIZE" top="5" layout="horizontal" right="0" width="Titanium.UI.SIZE">
+						<Widget src="bpc.button" visible="true"
+						faicon="fa-minus-circle" text="" width="25" backgroundColor="" height="25" borderWidth="0"
+						color="#3b1213" />
+						<Label backgroundColor="e2e3e4" width="40" textAlign="center" class="small" height="25" color="#3b1213">x 2</Label>
+						<Widget src="bpc.button"
+						faicon="fa-plus-circle" text="" width="25" backgroundColor="" height="25" borderWidth="0"
+						color="#3b1213" />
+					</View>
+					<View height="10"></View>
+				</View>
+				<!-- <Label left="10%" top="10" width="Titanium.UI.SIZE" color="#3b1213">Special Instructions:</Label>
+				<View backgroundColor="#f1f3f4" height="Titanium.UI.SIZE" width="80%">
+				<TextArea id="txtSpecialInstructions" left="17" backgroundColor="#f1f3f4" width="Titanium.UI.FILL" height="80" color="#3b1213" onBlur="updateSpecialInstructions" value="{settings.specialInstructions}"></TextArea>
+				</View> -->
+				<Label left="10%" top="10" width="Titanium.UI.SIZE" color="#3b1213">Add:</Label>
+				<ScrollView backgroundColor="#f1f3f4" height="110" width="80%" contentWidth="auto" layout="horizontal" id="parent_addOn"></ScrollView>
+				<View backgroundColor="#f1f3f4" height="110" width="80%" top="10">
+					<Label top="10" left="10" right="100" width="Titanium.UI.SIZE" color="#3b1213" id="lbl_donate" text="Donate"/>
+					<TextField id="tf_donate" right="10" top="10" borderWidth="0.5" borderColor="#000" backgroundColor="#f1f3f4" width="80" height="40" color="#3b1213" touchEnabled="false" value="$ 1.00"/>
+					<Button src="bpc.button" right="10" bottom="50" onClick="incrementTip"
+					backgroundImage="/images/icon_plus_n.png" text="" width="25" backgroundColor="transparent" height="25" borderWidth="0"
+					color="#ff0000" />
+					<Button id="decrement_donate" src="bpc.button" right="40" bottom="50" onClick="decrementTip"
+					backgroundImage="/images/icon_minus_n.png" text="" width="25" backgroundColor="transparent" height="25" borderWidth="0"
+					color="#ff0000" />
+					<View id="goal_progress_main" height="10" left="5%" width="80%" bottom="30" backgroundColor="#b9b9b9">
+						<View id="goal_progress_actual" height="10" width="0" backgroundColor="#18836d" left="0"/>
+					</View>
+					<Label bottom="0" left="5%" width="Titanium.UI.SIZE" color="#000" id="lbl_raised"/>
+					<Label bottom="0" right="20%" width="Titanium.UI.SIZE" color="#000" id="lbl_goal"/>
+				</View>
+				<Label left="10%" top="0" height="0" width="Titanium.UI.SIZE" color="#3b1213" id="lbl_orderType" visible="false">Order Type:</Label>
+				<View top="0" height="0" left="10%" width="80%" backgroundColor="#f1f3f4" id="view_orderType">
+					<!-- <Label id="lblPickUp" left="3" class="bold" color="#3b1213">Pick Up</Label>
+					<Slider id="sliderOrderType" min="0" width="35%" max="1" minRange="0" maxRange="1" enabled="0"></Slider>
+					<View visible="false" id="lblComingSoon" right="3" layout="vertical" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+						<Label class="size12" color="#3b1213">Delivery</Label>
+						<Label class="size9" color="#3b1213">(Coming Soon)</Label>
+					</View>
+					<Label id="lblDelivery" right="15">Delivery</Label> -->
+				</View>
+				<View left="10%" width="80%" visible="true" backgroundColor="#f1f3f4" id="viewUserLocation" layout="vertical" height="Titanium.UI.SIZE">
+					<Label id="lblUserLocationTitle" class="current-vendor-label" color="#3b1213" width="Titanium.UI.SIZE">Vendor will deliver to:</Label>
+					<View layout="horizontal" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+						<Widget src="bpc.button" top="0" onClick="editLocation"
+						faicon="fa-pencil-square-o" width="25" height="20"
+						text=""
+						class="transparentButton smallButton" color="#3b1213" />
+						<View layout="vertical" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+							<Label id="lblUserSection" class="current-vendor" color="#3b1213">Section 102</Label>
+							<Label id="lblUserRow" class="current-vendor" color="#3b1213">Row 33</Label>
+							<Label id="lblUserSeat" class="current-vendor" color="#3b1213">Seat 5</Label>
+						</View>
+					</View>
+					<View height="5"></View>
+				</View>
+				<View height="50"></View>
+			</View>
+		</ScrollView>
+		<View id="viewTotals" bottom="40" height="93" backgroundColor="#392f1d">
+			<View id="orderTotalView" top="3" backgroundColor="#5568a2">
+				<View id="orderTotalContentView" layout="vertical" top="0">
+					<View width="300" right="30" height="Titanium.UI.SIZE">
+						<Label right="70" width="Titanium.UI.SIZE" class="bold" color="#f1f3f4">Subtotal:</Label>
+						<Label id="lblSubTotal" right="0" width="Titanium.UI.SIZE" class="bold"  color="#f1f3f4">$7.30</Label>
+					</View>
+					<View id="viewServiceCharage" width="300" top="1" right="30" height="Titanium.UI.SIZE">
+						<Label right="70" width="Titanium.UI.SIZE" class="bold" color="#f1f3f4">Service Charge:</Label>
+						<Label id="lblServiceCharge" right="0" width="Titanium.UI.SIZE" class="bold"  color="#f1f3f4">$1.50</Label>
+					</View>
+					<View id="viewTip" width="300" top="1" right="0" height="Titanium.UI.SIZE" visible="true">
+						<Label right="100" width="Titanium.UI.SIZE" class="bold" color="#f1f3f4">Donate:</Label>
+						<!-- <Widget src="bpc.button" id="icon_decrement" visible="false" right="75" onClick="decrementTip"
+						faicon="fa-minus" text="" width="25" backgroundColor="transparent" height="25" borderWidth="0"
+						color="#ff0000"/> -->
+						<Button  id="icon_decrement" visible="false" right="75" onClick="decrementTip"
+						backgroundImage="/images/icon_minus.png" width="25" backgroundColor="transparent" height="25" borderWidth="0"
+						color="#ff0000"/>
+						<Label id="lblTipAmount" right="30" width="Titanium.UI.SIZE" class="bold"  color="#f1f3f4">$1.00</Label>
+						<!-- <Widget src="bpc.button" right="3" onClick="incrementTip"
+						faicon="fa-plus" text="" width="25" backgroundColor="transparent" height="25" borderWidth="0"
+						color="#ff0000" /> -->
+						<Button src="bpc.button" right="3" onClick="incrementTip"
+						backgroundImage="/images/icon_plus.png" text="" width="25" backgroundColor="transparent" height="25" borderWidth="0"
+						color="#ff0000" />
+					</View>
+					<View width="167" top="1" height="2" right="30" backgroundColor="#151d27"></View>
+					<View width="300" top="1" right="30" height="Titanium.UI.SIZE">
+						<Label right="70" width="Titanium.UI.SIZE" class="bold" color="#f1f3f4">Total:</Label>
+						<Label id="lblTotal" right="0" width="Titanium.UI.SIZE" class="bold"  color="#f1f3f4">$8.80</Label>
+					</View>
+				</View>
+			</View>
+		</View>
+		<View id="notificationView" opacity="0" visible="false" height="40" bottom="42" borderWidth="1" backgroundColor="#ba2731">
+			<Label id="lblMsg" color="white">NOTIFICATIONS APPEAR HERE</Label>
+		</View>
+		<View id="cartActionsView" height="40" bottom="0" borderWidth="0">
+			<Widget src="bpc.button" id="btnOpenCart"
+			faicon="fa-times-circle" text="Clear" left="0" width="50%" borderWidth="0" backgroundColor="#ba2731"
+			class="redButton" onClick="clearCart" />
+			<Widget src="bpc.button" id="btnOpenCart"
+			faicon="fa-check-circle" text="Checkout" right="0" borderWidth="0" width="50%" backgroundColor="#20283e"
+			class="loginButton" onClick="goToCheckout" />
+		</View>
+		<Require id="locationDialog" type="view" src="locationDialog"></Require>
+		<View id="loadingView" visible="false"  top="0" left="0" width="100%" height="100%">
+			<View backgroundColor="black" opacity="0.6"></View>
+			<Label color="white" id="lblLoading">LOADING...</Label>
+		</View>
+	</Window>
+</Alloy>

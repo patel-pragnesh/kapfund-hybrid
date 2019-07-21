@@ -1,0 +1,13 @@
+<Alloy>
+	<ItemTemplate name="venueTemplate" height="65" >
+		<View layout="absolute" top="0">
+			<View layout="vertical" left="10" height="Titanium.UI.SIZE">
+				<Label left="0" class="venue-title" bindId="venueName">Nashville - Powell Ave</Label>
+				<Label left="0" class="venue-address" bindId="venueAddress">2534 Powell Ave</Label>
+				<Label left="0" class="venue-address" bindId="venueCityStateZip">Nashville, TN 37204</Label>
+			</View>
+			<Label right="10" class="venue-title" bindId="venueMiles">| 3.01 mi</Label>
+			
+		</View>
+	</ItemTemplate>
+</Alloy>

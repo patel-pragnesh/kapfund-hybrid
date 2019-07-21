@@ -1,0 +1,40 @@
+<Alloy>
+	<View id="locationPicker" visible="false" top="0" left="0" width="100%" height="100%">
+		<View backgroundColor="black" opacity="0.6">
+		</View>
+		<View width="85%" height="70%" class="formBackground" borderWidth="1" borderColor="black">
+			<ScrollView layout="vertical" bottom="50" height="Titanium.UI.FILL">
+				<Label id="lblTitle" class="bold size14" top="15" textAlign="Titanium.UI.TEXT_ALIGNMENT_CENTER">Enter your location to check for delivery:</Label>	
+				
+				<View top="10" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE" layout="vertical">
+					<View right="0" layout="horizontal" top="5" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+						<Label class="size14" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" text="Section: "></Label>
+						<TextField id="txtSection" width="125" keyboardType="KEYBOARD_TYPE_ASCII"></TextField>
+					</View>	
+					<View right="0" layout="horizontal" top="5" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+						<Label class="size14" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" text="Row: "></Label>
+						<TextField id="txtRow" width="125" keyboardType="KEYBOARD_TYPE_ASCII"></TextField>
+					</View>		
+					<View right="0" layout="horizontal" top="5" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+						<Label class="size14" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" text="Seat: "></Label>
+						<TextField id="txtSeat" width="125" keyboardType="KEYBOARD_TYPE_ASCII"></TextField>
+					</View>			
+				</View>	
+			</ScrollView>
+			<View height="50" bottom="0">
+				<Widget src="bpc.button" id="btnOpenCart" onClick="cancel"
+					text="Cancel" left="0" width="50%" borderWidth="0" backgroundColor="#ba2731"
+					class="redButton"  />
+				<Widget src="bpc.button" id="btnOpenCart" onClick="ok"
+					text="OK" right="0" borderWidth="0" width="50%" backgroundColor="#20283e"
+					class="loginButton"  />
+			</View>
+		</View>
+		
+		<View id="loadingView" visible="false">
+			<View backgroundColor="black" opacity="0.5" >
+			</View>
+			<ActivityIndicator id="activityIndicator" color="white" message="Loading..."/>
+		</View>
+	</View>
+</Alloy>

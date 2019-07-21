@@ -1,0 +1,53 @@
+<Alloy>
+	<View>
+		<ListView scrollsToTop="true"  willScrollOnStatusTap="true" allowsSelection="false" id="lstVenues" top="10" bottom="40" visible="true" defaultItemTemplate="orderTemplate">
+			<Templates>
+				<ItemTemplate name="orderTemplate" height="100" >
+					<View >
+						<View layout="vertical" left="10" top="5" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+							<Label class="size16" bindId="VendorOrderNumberTxt">Order #VEN123</Label>
+							<Label left="15" top="0" height="Titanium.UI.SIZE" class="bold" bindId="FulfillmentType">Pickup</Label>
+							<Label top="15" left="15" class="bold size12" bindId="VenueName">Franklin High</Label>
+							<Label left="15" class="normal size12" bindId="VendorName">Football Stadium</Label>
+						</View>
+						<View layout="vertical" width="Titanium.UI.SIZE" right="15" top="5" height="Titanium.UI.SIZE">
+							<Label id="lblCreatedDate" right="0" color="#3b1213" class="small" bindId="DateCreatedTxt">1/3/2016 5:45 PM</Label>
+							<View right="0" layout="horizontal" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+								<Label height="Titanium.UI.SIZE" class="bold size12">Status:</Label>
+								<Label height="Titanium.UI.SIZE" text=" "></Label>
+								<Label height="Titanium.UI.SIZE" class="size12" bindId="Status">Done</Label>
+							</View>
+							<View width="120" height="16" borderWidth="1" borderColor="#3b1213">
+								<View left="0" width="50%" backgroundColor="#576cb2" bindId="StatusWidth"></View>
+							</View>
+						</View>
+					</View>
+					<View left="0" top="0" backgroundColor="#e2e3e4" opacity="0.1"
+					onTouchstart="orderItemTouchStart" onTouchend="orderItemClick" onTouchcancel="orderItemTouchCancel"></View>
+					<Button bindId="trackOrder" width="120" height="35" borderColor="#3b1213" bottom="2.5" right="15" title="Track Order" color="#fff" backgroundColor="#576cb2" backgroundSelectedColor="#576cb2" onTouchend="orderItemClickTrack" visible="false"></Button>
+				</ItemTemplate>
+			</Templates>
+			<ListSection id="orderList" headerTitle=":" dataCollection="pastOrders">
+				<HeaderView>
+					<View backgroundColor="#5568a2" height="60">
+						<Label left="3" color="white" id="lblOrderCount" height="60">Past Orders (1):</Label>
+					</View>
+				</HeaderView>
+				<ListItem template="orderTemplate"
+				id:text="{id}"
+				VendorOrderNumber:text="{vendorOrderNumber}"
+				VendorOrderNumberTxt:text="{vendorOrderNumberTxt}"
+				Total:text="{total}" TotalTxt:text="{totalTxt}"
+				DateCreatedTxt:text="{dateCreatedTxt}"
+				FulfillmentType:text="{fulfillmentTypeName}"
+				VenueName:text="{venueName}"
+				VendorName:text="{vendorName}"
+				Status:text="{orderStatusName}"
+				StatusWidth:width="{orderStatusWidth}"
+				trackOrder:visible="{delivering}" trackOrder:enabled="{delivering}"
+				/>
+			</ListSection>
+		</ListView>
+		<View bottom="0" height="40" backgroundColor="white"></View>
+	</View>
+</Alloy>

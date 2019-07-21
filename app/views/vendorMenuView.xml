@@ -1,0 +1,95 @@
+<Alloy>
+	<View class="container">
+		<View top="0" height="200" class="lightButton" id="top_parent">
+			<View layout="vertical" height="Titanium.UI.SIZE" top="3" left="0">
+				<View width="Alloy.Globals.screenWidth" height="40" top="0" backgroundColor="#000">
+					<Label id="lbl_ticker" class="lbl_ticker"/>
+				</View>
+				<View top="0" class="lightBackground" id="view_runner" height="110"/>
+				<Label id="lblVenueName" class="light-white menu-venue-name" textAlign="center">Montgomery Bell Academy</Label>
+				<Label id="lblVendorName" class="light-white menu-vendor-name" textAlign="center">Football Stadium</Label>
+				<!--<Label class="light-white menu-venue-name" textAlign="center" text="Franklin High Test With Long Name"></Label>-->
+				<View layout="horizontal" top="3">
+					<View id="btnFood" width="32%" left="1%" bottom="0" borderWidth="2" borderColor="#5568a2" backgroundColor="#5568a2" borderRadius="3" onClick="filterFood">
+						<Label id="lblFood" class="light-white">Food</Label>
+					</View>
+					<View id="btnDrinks" width="32%" left="1%" bottom="0" borderWidth="2" borderColor="#5568a2" borderRadius="3" onClick="filterDrinks">
+						<Label id="lblDrinks" class="dark-white">Drinks</Label>
+					</View>
+					<View id="btnSides" width="32%" left="1%" bottom="0" borderWidth="2" borderColor="#5568a2" borderRadius="3" onClick="filterSides">
+						<Label id="lblSides" class="dark-white">Other</Label>
+					</View>
+				</View>
+			</View>
+		</View>
+		<View top="200" bottom="0" id="menu_list_view">
+			<ListView borderWidth="1" defaultItemTemplate="template" borderColor="#5166a1" backgroundColor="#FFF" separatorColor="#20283e" id="lstMenuItems" allowsSelection="false" top="0" visible="true"  height="Titanium.UI.FILL" bottom="80">
+				<Templates>
+					<!--<ItemTemplate name="template" height="100" backgroundImage="/images/Rectangle.png" backgroundColor="#5568a2" id="tmp_def">-->
+					<ItemTemplate name="template" height="100" id="tmp_def">
+						<View id="item_parent" height="100" width="Titanium.UI.FILL">
+						<View left="0">
+							<ImageView bindId="ItemImage" left="0" width="200" height="200" image="http://livedoor.blogimg.jp/sytsyt/imgs/c/6/c6050bdc.jpg" />
+						</View>
+						<View left="38%" backgroundColor="#163282" opacity="0.6" bindId="sepParent"></View>
+						<View layout="vertical" left="38%"  top="5" bindId="textParent">
+							<Label right="10" class="light-white" bindId="ItemName">Hot Dog Blank</Label>
+							<Label right="10" class="light-white" bindId="PriceText">$2.50</Label>
+							<View bindId="btn_parent">
+								<View id="btnCustomize" width="45%"  height="40" left="5" backgroundColor="#20283e"
+								activeBackgroundColor="#10182e" defaultBackgroundColor="#20283e"
+								bindId="CanCustomize"
+								onTouchstart="btnCustomize_touchStart" onTouchcancel="btnCustomize_touchCancel" onTouchend="btnCustomize_touchEnd"
+								>
+									<View layout="horizontal" height="Titanium.UI.FILL" width="Titanium.UI.SIZE" touchEnabled="false">
+										<Label id="lblCustomzie" class="small-font light-white" height="Titanium.UI.FILL"  touchEnabled="false">Customize</Label>
+									</View>
+								</View>
+								<View id="btnAddToCart" width="45%" height="40" right="5" backgroundColor="#ba2731"
+								activeBackgroundColor="#aa1721" defaultBackgroundColor="#ba2731"
+								onTouchstart="btnAddToCart_touchStart" onTouchcancel="btnAddToCart_touchCancel" onTouchend="btnAddToCart_touchEnd">
+									<View layout="horizontal" height="Titanium.UI.FILL" width="Titanium.UI.SIZE" touchEnabled="false">
+										<Label id="lblAddToCart" class="small-font light-white" height="Titanium.UI.FILL" touchEnabled="false">Add to cart</Label>
+									</View>
+								</View>
+							</View>
+						</View>
+						</View>
+					</ItemTemplate>
+					<ItemTemplate name="combo_template" height="100" backgroundImage="/images/Rectangle.png" id="tmp_combo">
+						<View left="5" top="5" backgroundImage="/images/Rectangle.png">
+							<View layout="horizontal" left="0"  top="5">
+								<Label left="10" class="light-black-combo" bindId="ItemName">Hot Dog Blank</Label>
+								<Label left="5" class="light-black-combo" bindId="PriceText">$2.50</Label>
+							</View>
+							<View>
+								<View id="btnAddToCart" bottom="5" width="45%" height="40" right="5" backgroundColor="#ba2731"
+								activeBackgroundColor="#aa1721" defaultBackgroundColor="#ba2731"
+								onTouchstart="btnAddToCart_touchStart" onTouchcancel="btnAddToCart_touchCancel" onTouchend="btnAddToCart_touchEnd">
+									<View layout="horizontal" height="Titanium.UI.FILL" width="Titanium.UI.SIZE" touchEnabled="false">
+										<Label id="lblAddToCart" class="small-font light-white" height="Titanium.UI.FILL" touchEnabled="false">Add to cart</Label>
+									</View>
+								</View>
+							</View>
+						</View>
+					</ItemTemplate>
+				</Templates>
+				<!--<ListSection id="vendorList" dataCollection="vendorMenuItems" dataFilter="doFilter">-->
+				<ListSection id="vendorList" dataCollection="vendorMenuItems" dataTransform="doTransform">
+					<HeaderView>
+						<View height="3"></View>
+					</HeaderView>
+					<ListItem template="template"
+					CanCustomize:visible="{canCustomize}"
+					ItemImage:image="{itemImage}" id:text="{id}" type:text="{type}"
+					ItemName:text="{itemName}"
+					Price:text="{price}"
+					PriceText:text="{priceTxt}" />
+				</ListSection>
+			</ListView>
+			<View height="1.5" width="Alloy.Globals.screenWidth" backgroundColor="#000" bottom="81" id="sep_banner"/>
+			<ImageView id="bannerView" bottom="0" height="80" width="Alloy.Globals.screenWidth" image="/images/banner.png"/>
+		</View>
+		<View bottom="0" height="0" backgroundColor="#5166a1"></View>
+	</View>
+</Alloy>

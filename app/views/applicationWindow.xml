@@ -1,0 +1,29 @@
+<Alloy>
+	<Window id="window">
+		<View class="container" id="container">
+			<View class="navView" id="navView">
+				<Label id="lblLeftBtn" left="3" class="linkLabel"></Label>
+				<Label>LOGO</Label>
+				<Label id="lblRightBtn" right="3" class="linkLabel" onClick="rightBtn_click">SIGN OUT</Label>
+			</View>
+			
+			<View class="contentView" id="contentView">
+			</View>
+			
+			<View class="tabView" id="tabView">
+				<View class="tabItem" onClick="test" left="0">
+					<Label>ICON</Label>
+					<Label>Orders</Label>
+				</View>
+				<View class="tabItem" onClick="test2">
+					<Label>ICON</Label>
+					<Label>Settings</Label>
+				</View>
+				<View class="tabItem" right="0">
+					<Label>ICON</Label>
+					<Label>Cart</Label>
+				</View>
+			</View>
+		</View>
+	</Window>
+</Alloy>

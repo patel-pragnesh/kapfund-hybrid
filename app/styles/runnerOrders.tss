@@ -1,0 +1,13 @@
+
+".container" : {
+  
+}
+
+".imagesView": {
+	height: "50%"
+}
+
+".optionListView": {
+	top: "50%"
+}
+

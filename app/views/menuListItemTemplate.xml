@@ -1,0 +1,9 @@
+<Alloy>
+	<ItemTemplate name="group">
+		<View layout="absolute" left="10">
+			<Label left="0" bottom="10">Testing</Label>
+			<Label left="50" bindId="CategoryName"></Label>
+			<Label right="0">></Label>
+		</View>
+	</ItemTemplate>
+</Alloy>

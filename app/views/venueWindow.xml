@@ -1,0 +1,143 @@
+<Alloy>
+	<Window id="window" class="formBackground">
+		<View>
+			<View backgroundColor="#212c38" top="0" height="40">
+				<View layout="horizontal" width="Titanium.UI.SIZE">
+					<ImageView image="/images/Ballpark-Official-White.png" height="40" />
+					<Label color="white" id="lblTitle" class="titleLabel" left="3">
+						- Select Venue
+					</Label>
+				</View>
+				<Widget src="bpc.button" id="btnBack"
+				faicon="fa-angle-left" text="" left="-1" width="50" backgroundColor="#151d27"
+				class="loginButton navBars" onClick="goBack" />
+			</View>
+			<View id="venueView" class="container" top="40" width="Alloy.Globals.screenWidth" right="0%" >
+				<View height="Titanium.UI.FILL" layout="vertical" top="0">
+					<View platform="android" top="5" height="43" backgroundColor="#212c38" width="80%">
+						<SearchView top="0" ns="Ti.UI.Android" platform="android" hintText="City/Sate/ZipCode"
+						onCancel="blurSearchTxt" onSubmit="searchVenues" id="txtSearchAndroid"
+						/>
+					</View>
+					<SearchBar id="search" platform="ios" width="80%"
+					showCancel="true" hintText="City/State/Zipcode" barColor="#FFF" height="43" top="5"
+					onReturn="searchVenues" onCancel="blurSearchTxt" id="txtSearchIOS" />
+					<Widget src="bpc.button" height="45"
+					faicon="fa-crosshairs" text="Use Current Location" top="10"
+					class="standardButton" onClick="searchByCurrentLoc" />
+					<View top="10" id="venueViewListWrapper" right="0%">
+						<ListView onItemclick="venueItemClick" id="lstVenues" top="10" visible="false" defaultItemTemplate="venueTemplate" height="Titanium.UI.FILL">
+							<Templates>
+								<Require src="venueTemplate" />
+							</Templates>
+							<ListSection id="venueList" headerTitle="Nearby venues:">
+								<HeaderView>
+									<View backgroundColor="#5568a2" height="60">
+										<Label left="3" color="white" id="lblVenueCount" height="60">
+											1 nearby venue:
+										</Label>
+									</View>
+								</HeaderView>
+							</ListSection>
+							<FooterView>
+								<View height="0">
+								</View>
+							</FooterView>
+						</ListView>
+					</View>
+				</View>
+			</View>
+			<View left="0" top="40" opacity="0" visible="false" id="vendorView" width="Alloy.Globals.screenWidth" right="0%">
+				<View layout="vertical" top="0" height="Titanium.UI.FILL">
+					<View id="vendorDeliveryInfo" layout="vertical" width="80%" height="0" visible="false">
+						<Label class="bold">
+							Found 2 vendors that can deliver to you at:
+						</Label>
+						<Label class="bold">
+							Section 123
+						</Label>
+						<Label class="bold">
+							Row M
+						</Label>
+						<Label class="bold">
+							Seat 14
+						</Label>
+					</View>
+					<!--<View layout="vertical" width="80%" height="Titanium.UI.SIZE" visible="true">
+					<Label id="lblVendorPickupInfo" class="bold">Found 1 vendor available for pickup:</Label>
+					</View>-->
+					<ListView onItemclick="vendorItemClick" id="lstVendors" top="10" visible="true" defaultItemTemplate="vendorTemplate" height="Titanium.UI.FILL">
+						<Templates>
+							<Require src="vendorTemplate" />
+						</Templates>
+						<ListSection id="vendorList">
+							<HeaderView>
+								<View backgroundColor="#5568a2" height="60">
+									<Label left="3" color="white" id="lblVendorSelect">
+										Select vendor you would like to place orders at:
+									</Label>
+								</View>
+							</HeaderView>
+						</ListSection>
+						<FooterView>
+							<View height="0">
+							</View>
+						</FooterView>
+					</ListView>
+				</View>
+			</View>
+			<View left="0" top="40" opacity="0" visible="false" id="orderTypeView" width="Alloy.Globals.screenWidth">
+				<View layout="vertical" top="0" height="Titanium.UI.FILL">
+					<View backgroundColor="#5568a2" height="Titanium.UI.SIZE">
+						<Label left="3" color="white">
+							Dan's Arena, Nashville, TN
+						</Label>
+					</View>
+					<Widget src="bpc.button" height="45" onClick="selectPickup"
+					faicon="fa-shopping-bag" text="PICKUP" top="15"
+					class="standardButton" />
+					<Label top="15">
+						OR
+					</Label>
+					<Label top="15">
+						Enter location to check for delivery:
+					</Label>
+					<View width="80%" height="Titanium.UI.SIZE" layout="vertical">
+						<View right="0" layout="horizontal" top="5" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+							<Label height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" text="Section: ">
+							</Label>
+							<TextField id="txtSection" width="125">
+							</TextField>
+						</View>
+						<View right="0" layout="horizontal" top="5" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+							<Label height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" text="Row: ">
+							</Label>
+							<TextField id="txtRow" width="125">
+							</TextField>
+						</View>
+						<View right="0" layout="horizontal" top="5" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+							<Label height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" text="Seat: ">
+							</Label>
+							<TextField id="txtSeat" width="125">
+							</TextField>
+						</View>
+					</View>
+					<Widget src="bpc.button" height="45" onClick="selectDelivery"
+					faicon="fa-car" text="DELIVERY" top="15"
+					class="standardButton" />
+					<Label class="bold" top="15">
+						OR
+					</Label>
+					<Widget src="bpc.button" height="45" onClick="selectLocation"
+					faicon="fa-map-o" text="Pin My Location" top="15"
+					class="standardButton" />
+				</View>
+			</View>
+			<View id="loadingView" visible="false" backgroundColor="black" opacity="0.5" top="0" left="0" width="100%" height="100%">
+				<Label color="white" id="lblSearchTxt">
+					SEARCHING...
+				</Label>
+			</View>
+		</View>
+	</Window>
+</Alloy>

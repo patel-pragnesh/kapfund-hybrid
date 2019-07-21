@@ -1,0 +1,37 @@
+<Alloy>
+	<View id="mainView"  height="100%" width="100%" top="0" backgroundColor="#151d27">
+		<View width="Alloy.Globals.screenWidth" height="Titanium.UI.FILL" top="0">
+			<ImageView id="imgLogo" image="/images/stadium-min-with-logo.jpg" width="440" height="330" top="-10" />
+		</View>
+		<View id="imagesView" class="imagesView" width="Alloy.Globals.screenWidth" top="0">
+			<ImageView id="img1" image="/images/stadium-min.jpg" width="1601" opacity="1" />
+			<ImageView id="img2" image="/images/baseballField.jpg" width="2560" opacity="1" />
+			<ImageView id="img3" image="/images/basketball.jpg" width="1698" opacity="1" />
+			<ImageView id="img4" image="/images/soccer.jpg" width="1800" opacity="1" />
+			<ImageView id="img5" image="/images/stadium-min.jpg" width="1600" opacity="1" />
+
+			<View opacity="0.33" backgroundColor="#000"></View>
+			<ImageView image="/images/Ballpark-Official-White.png" width="300"  />
+		</View>
+		<View id="optionListView" class="optionListView">
+			<ScrollView class="lightBackground" scrollsToTop="false">
+					<View layout="vertical" top="20">
+						<Widget src="bpc.button" height="45"
+							faicon="fa-cutlery" text="runner Menu" top="0"
+							class="loginButton" onClick="startOrder" />
+
+						<Widget src="bpc.button" height="45"
+							faicon="fa-search" text="runner  Vendor Locator" top="20"
+							class="loginButton" onClick="openVenueWindow" />
+
+						<Widget src="bpc.button" height="45"
+							faicon="fa-history" text="runner  Past Orders" top="20"
+							class="loginButton" onClick="goToPastOrders" />
+						<Widget src="bpc.button" height="45"
+							faicon="fa-location-arrow" text="Track Rider" top="20"
+							class="loginButton" onClick="openTracker" />	
+					</View>
+			</ScrollView>
+		</View>
+	</View>
+</Alloy>

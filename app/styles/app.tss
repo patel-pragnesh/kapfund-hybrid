@@ -1,0 +1,460 @@
+/*
+
+This is your global styles file. Selectors and rules you define
+here will be applied throughout your app. However, these rules
+have the lowest priority of any style settings.
+
+For more information, see the "Style Priorities" section of
+http://docs.appcelerator.com/platform/latest/#!/guide/Alloy_Styles_and_Themes
+
+For example, the following would apply to all labels, windows,
+and text fields (depending on platform) in your app unless you
+overrode the settings with other TSS, XML, or JS settings:
+
+'Label[platform=android,windows]': {
+	color: '#000' // all platforms except Android and Windows default to black
+}
+
+'Window': {
+	backgroundColor: '#fff' // white background instead of default transparent or black
+}
+
+'TextField[platform=android]': {
+	height: Ti.UI.SIZE
+}
+
+*/
+".lbl_ticker": {
+	font: {
+		fontSize: 22,
+		//fontWeight: "bold"
+	},
+	color: "#90FF33",
+	left : 10
+}
+"Window[platform=android]": {
+	backgroundColor: "#5568a2",
+	windowSoftInputMode: Titanium.UI.Android.SOFT_INPUT_STATE_HIDDEN
+}
+
+"Window[platform=ios]": {
+	backgroundColor: "#5568a2",
+	statusBarStyle: Titanium.UI.iOS.StatusBar.LIGHT_CONTENT.StatusBar
+}
+
+
+".formBackground": {
+	backgroundColor: "#e2e3e4"
+}
+
+".offwhite": {
+	color: "#e6e6e6"
+}
+
+".dark-white": {
+	color: "#e2e3e4"
+}
+
+".dark-white-back": {
+	backgroundColor: "#e2e3e4"
+}
+
+"light-black": {
+	color: "#3b1213"
+}
+"light-black-combo":{
+	color: "#000",
+	font: {
+		fontSize: "24",
+		fontWeight: "normal"
+	}
+}
+
+".fontAwesome" : {
+	font: {
+		fontFamily: "FontAwesome"
+	}
+}
+
+".fa-eye": {
+	text: "\uf06e",
+	font: {
+		fontFamily: "FontAwesome",
+		fontSize: "24"
+	}
+}
+
+".fa-check": {
+	text: "\uf00c",
+	font: {
+		fontFamily: "FontAwesome"
+	}
+}
+
+".fa-credit-card": {
+	text: "\uf09d",
+	font: {
+		fontFamily: "FontAwesome"
+	}
+}
+
+".fa-remove": {
+	text: "\uf057",
+	font: {
+		fontFamily: "FontAwesome"
+	}
+}
+
+".light-white": {
+	color: "#f1f3f4"
+}
+
+".lightButton": {
+	backgroundColor: "#20283e"
+}
+
+".darkButton": {
+	backgroundColor: "#151d27",
+	color: "white"
+}
+
+".lightBackground": {
+	backgroundColor: "#5568a2",
+	borderColor : "#000",
+	borderWidth : 5
+}
+
+".venue-cart-label": {
+	font: {
+		fontSize: 12,
+		fontWeight: "normal"
+	}
+}
+
+".size9": {
+	font: {
+		fontSize: "9"
+	}
+}
+
+".size12": {
+	font: {
+		fontSize: "12"
+	}
+}
+
+".size14": {
+	font: {
+		fontSize: "14"
+	}
+}
+
+".size16": {
+	font: {
+		fontSize: "16"
+	}
+}
+
+".bold": {
+	font: {
+		fontWeight: "bold"
+	}
+}
+
+".normal": {
+	font: {
+		fontWeight: "normal"
+	}
+}
+
+".small": {
+	font: {
+		fontWeight: "normal",
+		fontSize: 12
+	}
+}
+
+".large": {
+	font: {
+		fontSize: 20,
+		iconFontSize: 26
+	}
+}
+
+".icon-btn": {
+	color: '#000',
+	font: {
+		fontSize: 18,
+		fontWeight: 'bold'
+	},
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}
+
+".venue-title": {
+	font: {
+		fontWeight: "bold",
+		fontSize: 14
+	}
+}
+
+".small-font": {
+	font: {
+		fontSize: 12
+	}
+}
+
+".venue-address": {
+	font: {
+		fontSize: 12
+	}
+}
+
+".current-vendor-label": {
+	font: {
+		fontSize: 12,
+		fontWeight: "bold"
+	},
+	color: "#e2e3e4"
+}
+
+".current-vendor": {
+	font: {
+		fontSize: 12,
+		fontWeight: "normal"
+	},
+	color: "#e2e3e4"
+}
+
+// Icon buttons
+".icon": {
+	iconFont: 'FontAwesome',
+	icon: Alloy.Globals.fa.powerOff,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+}
+
+".smallButton": {
+	font: { 
+		fontSize: 12
+	},
+	height : "30"
+}
+
+".transparentButton": {
+	backgroundColor: "transparent",
+	borderColor: "transparent",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "transparent",
+		borderColor: "transparent",
+		color: "#888"
+	},
+	font: {
+		fontSize: 14
+	}
+}
+
+".standardButton": {
+	backgroundColor: "#20283e",
+	borderColor: "#20283e",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#00081e",
+		borderColor: "#20283e"
+	},
+	font: {
+		fontSize: 14
+	}
+}
+
+".redButton": {
+	backgroundColor: "#ba2731",
+	borderColor: "#ba2731",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#7a1920",
+		borderColor: "#7a1920",
+		color: "#e2e3e4"
+	}
+}
+
+".greenButton": {
+	backgroundColor: "#27ba31",
+	borderColor: "#27ba31",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#17aa21",
+		borderColor: "#17aa21",
+		color: "#e2e3e4"
+	}
+}
+
+".cameraButton": {
+	backgroundColor: "#5568a2",
+	borderColor: "#5568a2",
+	color: "#f1f3f4",
+	activeStyle: {
+		backgroundColor: "#20283e",
+		color: "#fff"
+	}
+}
+
+".loginButton": {
+	backgroundColor: "#151d27",
+	borderColor: "#151d27",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#00081e",
+		borderColor: "#20283e",
+		color: "white"
+	}
+}
+
+".lightBlueButton": {
+	backgroundColor: "#5568a2",
+	borderColor: "#5568a2",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#253882",
+		borderColor: "#253882",
+		color: "white"
+	}
+}
+
+".navMenuButton": {
+	backgroundColor: "#151d27",
+	borderColor: "#151d27",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#151d27",
+		borderColor: "#151d27",
+		color: "#576cb2"
+	}
+}
+
+".createAcctButton": {
+	backgroundColor: "#20283e",
+	borderColor: "#20283e",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#000",
+		borderColor: "#20283e",
+		color: "white"
+	}
+}
+
+".submitButton": {
+	backgroundColor: "#20283e",
+	borderColor: "#20283e",
+	color: "white",
+	activeStyle: {
+		backgroundColor: "#00081e",
+		borderColor: "#20283e"
+	},
+
+}
+
+".viewButton": {
+	borderWidth: 1.0,
+	borderColor: "black",
+	height: "40",
+	width: 250
+}
+
+".navView": {
+	backgroundColor: "#CCC",
+	height: 40,
+	top: 0
+}
+
+".contentView": {
+	backgroundColor: "green"
+}
+
+".tabView": {
+	bottom: 0,
+	backgroundColor: "blue",
+	height: 45
+}
+
+".tabItem": {
+	width: "33.333%",
+	layout: "vertical",
+	borderWidth: 0.5,
+	borderColor: "#ABA58F"
+}
+
+
+".formItem": {
+	left: 0
+}
+
+".topNavBackColor": {
+	backgroundColor: "#212c38"
+}
+
+"TextField": {
+	color: "black",
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	borderColor : "#AEAEAE",
+	height: 40,
+	backgroundColor: "white"
+}
+
+"Label": {
+	color: "black"
+}
+
+".linkLabel": {
+	color: "#212c38"
+}
+
+".navBars": {
+	color: "white",
+	font: {
+		fontSize: "24",
+		fontWeight: "normal"
+	}
+}
+
+".titleLabel": {
+	font: {
+		fontWeight: "bold"
+	}
+}
+
+".menu-venue-name": {
+	font: {
+		fontSize: "18",
+		fontStyle: "italic"
+	}
+}
+
+".menu-vendor-name": {
+	font: {
+		fontSize: "10"
+	}
+}
+
+".menu-box": {
+	width: 40,
+	height: 40,
+	borderColor: "#e2e3e4",
+	borderWidth: 3
+}
+
+".order-types-pickup-only": {
+	font: {
+		fontSize: "12",
+		fontWeight: "bold"
+	},
+	color: "#ba2731"
+}
+
+".order-types": {
+	font: {
+		fontSize: "12",
+		fontWeight: "bold"
+	},
+	color: "#5568a2"
+}

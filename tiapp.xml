@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <!--<id>com.avatar.bpconcandroid</id>-->
+    <id>com.avatar.bpconc</id>
+    <name>KAP</name>
+    <version>1.33.5</version>
+    <publisher>dsokol</publisher>
+    <url>http://bpconc.avatar.com</url>
+    <description>Order food at your local KAP from your mobile phone</description>
+    <copyright>2017 by dsokol</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <!--<guid>56425d8f-af2f-4cac-9111-834c3611f77a</guid>-->
+    <guid>9b0e57d3-94ef-4d36-9aaa-5e59071b8b7e</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="OneSignal_AppID" type="string">76a4e56d-6872-4ad3-85ae-c06d1ebf07c8</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleLightContent</string>
+                <key>FacebookAppID</key>
+                <string>356173241815527</string>
+                <key>FacebookDisplayName</key>
+                <string>KAP</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <string>com.appcelerator.kitchensink</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <string>kitchensink</string>
+                            <string>fb356173241815527</string>
+                        </array>
+                    </dict>
+                </array>
+                <key>LSApplicationQueriesSchemes</key>
+                <array>
+                    <string>fbapi</string>
+                    <string>fb-messenger-api</string>
+                    <string>fbauth2</string>
+                    <string>fbshareextension</string>
+                    <string>com.paypal.ppclient.touch.v1</string>
+                    <string>com.paypal.ppclient.touch.v2</string>
+                    <string>org-appextension-feature-password-management</string>
+                </array>
+                <key>com.apple.developer.in-app-payments</key>
+                <array>
+                    <string>merchant.com.avatar.bpconc.stripe</string>
+                </array>
+                <key>NSAppTransportSecurity</key>
+                <dict>
+                    <key>NSExceptionDomains</key>
+                    <dict>
+                        <key>facebook.com</key>
+                        <dict>
+                            <key>NSIncludesSubdomains</key>
+                            <true/>
+                            <key>NSExceptionRequiresForwardSecrecy</key>
+                            <false/>
+                        </dict>
+                        <key>fbcdn.net</key>
+                        <dict>
+                            <key>NSIncludesSubdomains</key>
+                            <true/>
+                            <key>NSExceptionRequiresForwardSecrecy</key>
+                            <false/>
+                        </dict>
+                        <key>akamaihd.net</key>
+                        <dict>
+                            <key>NSIncludesSubdomains</key>
+                            <true/>
+                            <key>NSExceptionRequiresForwardSecrecy</key>
+                            <false/>
+                        </dict>
+                    </dict>
+                </dict>
+                <key>NSLocationAlwaysUsageDescription</key>
+                <string>KAP uses your location to find nearby venues.</string>
+                <key>NSLocationUsageDescription</key>
+                <string>KAP uses your location to find nearby venues.</string>
+                <key>NSLocationWhenInUseUsageDescription</key>
+                <string>KAP uses your location to find nearby venues.</string>
+                <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+                <string>KAP uses your location to find nearby venues.</string>
+                <key>NSPhotoLibraryUsageDescription</key>
+                <string>KAP needs access to your photo library.</string>
+                <key>NSCameraUsageDescription</key>
+                <string>KAP needs access to your photo camera for capturing credit card info.</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:installLocation="auto" android:versionCode="17">
+            <supports-screens android:anyDensity="true"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <application android:debuggable="false"
+                android:hardwareAccelerated="true"
+                android:icon="@drawable/appicon" android:label="KAP"
+                android:largeHeap="true"
+                android:name="ConciergeApplication" android:theme="@style/Theme.Titanium">
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/app_name"
+                    android:name=".ConciergeActivity"
+                    android:screenOrientation="portrait" android:theme="@style/Theme.Titanium">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                </activity>
+                <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:name="org.appcelerator.titanium.TiActivity" android:screenOrientation="portrait"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:name="org.appcelerator.titanium.TiTranslucentActivity"
+                    android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent"/>
+                <activity android:configChanges="screenSize"
+                    android:name="ti.modules.titanium.ui.android.TiPreferencesActivity" android:screenOrientation="portrait"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize" android:name="io.card.payment.CardIOActivity"/>
+                <activity android:configChanges="screenSize"
+                    android:name="io.card.payment.DataEntryActivity" android:screenOrientation="portrait"/>
+                <service android:exported="false" android:name="com.appcelerator.analytics.APSAnalyticsService"/>
+                <meta-data
+                    android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCV26mvecYx1h-zUMYVoyKBv2YpLQjNXgo"/>
+                <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+                <meta-data android:name="onesignal_app_id" android:value="76a4e56d-6872-4ad3-85ae-c06d1ebf07c8"/>
+                <meta-data
+                    android:name="onesignal_google_project_number" android:value="str:564278586109"/>
+            </application>
+        </manifest>
+    </android>
+    <modules>
+        <module platform="iphone">com.likelysoft.cardio</module>
+        <module platform="android">com.likelysoft.cardio</module>
+        <module platform="iphone">net.iamyellow.tiws</module>
+        <module platform="android">net.iamyellow.tiws</module>
+        <module platform="iphone">com.williamrijksen.onesignal</module>
+        <module platform="android">com.williamrijksen.onesignal</module>
+        <module platform="iphone">com.custom.mapbox</module>
+        <module platform="android">com.custom.mapbox</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="android">ti.map</module>
+        <module platform="iphone">ti.applepay</module>
+        <module platform="iphone">ti.paypal</module>
+        <module platform="android">facebook</module>
+        <module platform="iphone">facebook</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="windows">false</target>
+    </deployment-targets>
+    <sdk-version>7.4.0.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">5b88c6825e8c4a78b0f46f4d</property>
+</ti:app>

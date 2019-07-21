@@ -1,0 +1,7 @@
+<Alloy>
+	<Window modal="true">
+		<View class="container">
+			<Label>LOADING...</Label>
+		</View>
+	</Window>
+</Alloy>

@@ -1,0 +1,72 @@
+<Alloy>
+	<Window id="window" class="formBackground">	
+		<View>
+			
+		
+			<View backgroundColor="#212c38" top="0" height="40">
+				
+				<View layout="horizontal" width="Titanium.UI.SIZE">
+					<ImageView image="/images/Ballpark-Official-White.png" height="40" />	
+					<Label color="white" id="lblTitle" class="titleLabel" left="3">- Credit Cards</Label>
+				</View>
+				
+				<Widget src="bpc.button" id="btnBack"
+					faicon="fa-angle-left" text="" left="-1" width="50" backgroundColor="#151d27"
+					class="loginButton navBars" onClick="goBack" />
+	
+		
+			</View>
+			<View id="venueView" class="container" top="40" width="Alloy.Globals.screenWidth" right="0%"  >
+					<View height="70%" layout="vertical" top="0">
+						<Label left="5%" top="5" class="bold">Saved Cards</Label>
+						<View top="0" id="venueViewListWrapper" width="90%" borderColor="white" borderWidth="1">
+							<ListView  id="lstCreditCards" top="0" onItemclick="selectCreditCard" visible="true" defaultItemTemplate="template" height="Titanium.UI.FILL" allowsSelection="false">
+								<Templates>
+									<ItemTemplate name="template" height="65">
+										<View id="viewCardInfo" visible="true" width="90%"  borderWidth="0" borderColor="#ba2731" height="65" top="0">
+											<View layout="horizontal" left="3" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE"
+												onClick="btnRemove_touchEnd" bindId="Remove"
+												>
+												<Label  touchEnabled="false" left="3" width="Titanium.UI.SIZE" class="fa-remove large" color="#ba2731" />
+												<Label touchEnabled="false" left="3" class="bold small" color="#ba2731">Remove</Label>
+												
+												
+											</View>
+											
+											
+											<View layout="horizontal" right="3" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" >
+												<Label id="lblCardType" visible="false"  color="#212c38" class="large fa-credit-card" touchEnabled="false"></Label>
+												
+												<Label left="3" class="bold">**** **** **** </Label>
+												<Label id="lblLast4" class="bold" bindId="LastFour">4242</Label>
+											</View>
+											
+											<View layout="horizontal" bottom="5" right="5" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE">
+												
+												<Label class="small" color="#888" bindId="Brand">American Express</Label>
+											</View>
+											
+										</View>
+									</ItemTemplate>
+								</Templates>
+								<ListSection id="ccList">
+									<HeaderView>
+										<View backgroundColor="#5568a2" height="0">
+										</View>
+									</HeaderView>
+								</ListSection>
+							</ListView>
+						</View>					
+						
+					</View>
+					
+					<Widget src="bpc.button" id="btnSelectCreditCard" top="75%" height="40" onClick="addCreditCard"
+								faicon="fa-plus-circle" text="New Credit Card" borderWidth="0" backgroundColor="#ba2731"
+								class="redButton normal"  />
+			</View>
+			<View id="loadingView" visible="false" backgroundColor="black" opacity="0.5" top="0" left="0" width="100%" height="100%">
+				<Label color="white" id="lblSearchTxt">LOADING...</Label>
+			</View>
+		</View>	
+	</Window>
+</Alloy>

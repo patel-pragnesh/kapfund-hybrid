@@ -1,0 +1,203 @@
+<Alloy>
+	<Model src="venue" />
+	<Model src="vendor"/>
+	<Model src="settings" />
+	<Window id="window" backgroundColor="#e2e3e4" top="0">
+		<View height="40" top="0">
+			<View backgroundColor="#212c38" top="0" height="40">
+				<View layout="horizontal" width="Titanium.UI.SIZE" visible="true" id="viewTitle">
+					<ImageView image="/images/Ballpark-Official-White.png" height="40" />
+					<Label class="light-white titleLabel" id="lblLogoTitle" left="3">
+						- Checkout
+					</Label>
+				</View>
+				<Widget src="bpc.button" id="btnBack"
+				faicon="fa-angle-left" text="" left="0" width="50" backgroundColor="#151d27"
+				class="loginButton navBars" onClick="goBack" />
+			</View>
+		</View>
+		<ScrollView id="scrollView" class="container"  bottom="50" top="40">
+			<View layout="vertical" height="Ti.UI.FILL" width="80%" >
+				<Label id="lblOrderType" left="0" top="10" width="Titanium.UI.SIZE" color="#3b1213">
+					Pick Up
+				</Label>
+				<View visible="false" id="pickupView" layout="vertical" backgroundColor="#f1f3f4"
+				height="0" width="Titanium.UI.SIZE">
+					<Label id="lblVenueName" top="15" left="20" class="bold size12">
+						Franklin High
+					</Label>
+					<Label id="lblVendorName" left="20" class="normal size12">
+						Football Stadium
+					</Label>
+					<Label id="lblVendorDesc" left="20" top="10" class="bold size12">
+						South endzone behind bleachers
+					</Label>
+					<View height="20">
+					</View>
+				</View>
+				<View visible="true" id="deliveryView" layout="vertical" backgroundColor="#f1f3f4" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+					<Label id="lblDeliveryVenue" top="5" left="20" class="bold size12">
+						Franklin High
+					</Label>
+					<Label id="lblDeliveryVendor" left="20" class="normal size12">
+						Football Stadium
+					</Label>
+					<Label id="lblDelivery" top="5" class="bold size12">
+						Vendor will deliver to:
+					</Label>
+					<Label id="lblDeliverySection" class="normal size12">
+						Section 101
+					</Label>
+					<Label id="lblDeliveryRow" class="normal size12">
+						Row 10
+					</Label>
+					<Label id="lblDeliverySeat" class="normal size12">
+						Seat 10
+					</Label>
+					<View height="3">
+					</View>
+				</View>
+				<!-- <Label top="7" left="0" width="Titanium.UI.SIZE" color="#3b1213" id="lbl_special">
+					Special Instructions:
+				</Label> -->
+				<!-- <View backgroundColor="#f1f3f4" height="Titanium.UI.SIZE" id="view_special">
+					<TextArea left="17" id="txtSpecialInstructions" backgroundColor="#f1f3f4" width="Titanium.UI.FILL" height="80" color="#3b1213" onBlur="updateSpecialInstructions" >
+					</TextArea>
+				</View> -->
+				<Label top="7" left="0" width="Titanium.UI.SIZE" color="#3b1213">
+					Order Summary:
+				</Label>
+				<View layout="vertical" backgroundColor="#f1f3f4" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE">
+					<View id="viewSubtotal" width="300" right="20" height="Titanium.UI.SIZE" top="10">
+						<Label right="60" width="Titanium.UI.SIZE" class="bold" color="#3b1213">
+							Subtotal:
+						</Label>
+						<Label id="lblSubTotal" right="0" width="Titanium.UI.SIZE" class="bold"  color="#3b1213">
+							$7.30
+						</Label>
+					</View>
+					<View id="viewServiceCharge" width="300" top="1" right="20" height="Titanium.UI.SIZE">
+						<Label right="60" width="Titanium.UI.SIZE" class="bold" color="#3b1213">
+							Service Charge:
+						</Label>
+						<Label id="lblServiceCharge" right="0" width="Titanium.UI.SIZE" class="bold"  color="#3b1213">
+							$1.50
+						</Label>
+					</View>
+					<!-- credit card charges -->
+					<View id="viewCreditCharge" width="300" top="1" right="20" height="Titanium.UI.SIZE" visible="false">
+						<Label right="60" width="Titanium.UI.SIZE" class="bold" color="#3b1213">
+							CC Charge:
+						</Label>
+						<Label id="lblCreditCharge" right="0" width="Titanium.UI.SIZE" class="bold"  color="#3b1213">
+							$1.00
+						</Label>
+					</View>
+					<View id="viewTip" width="300" top="1" right="20" height="Titanium.UI.SIZE">
+						<Label right="60" width="Titanium.UI.SIZE" class="bold" color="#3b1213">
+							Fundraiser:
+						</Label>
+						<Label id="lblTipCharge" right="0" width="Titanium.UI.SIZE" class="bold"  color="#3b1213">
+							$1.00
+						</Label>
+					</View>
+					<View width="167" top="1" height="2" right="20" backgroundColor="#151d27">
+					</View>
+					<View width="300" top="1" right="20" height="Titanium.UI.SIZE">
+						<Label right="60" width="Titanium.UI.SIZE" class="bold" color="#3b1213">
+							Total:
+						</Label>
+						<Label id="lblTotal" right="0" width="Titanium.UI.SIZE" class="bold"  color="#3b1213">
+							$8.80
+						</Label>
+					</View>
+					<Label top="7" left="3" width="Titanium.UI.SIZE" color="#3b1213" id="lbl_email">
+						Email for your receipt:
+					</Label>
+					<View backgroundColor="#f1f3f4" height="Titanium.UI.SIZE" id="view_email">
+						<TextField right="17" left="17" id="tf_email" backgroundColor="#f1f3f4" width="Titanium.UI.FILL" height="40" color="#3b1213" />
+					</View>
+					<Label left="3" class="normal">
+						Payment:
+					</Label>
+					<View height="Titanium.UI.SIZE" top="3">
+						<View id="viewCardInfo" visible="false" width="90%"  borderWidth="1" borderColor="#ba2731" height="35" top="0">
+							<View layout="horizontal" left="3" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE"
+							onClick="removeCreditCard"
+							>
+								<Label id="lblRemove" touchEnabled="false" left="3" width="Titanium.UI.SIZE"
+								icon="fa-times-circle"
+								class="large" color="#ba2731" />
+								<Label touchEnabled="false" left="3" class="bold" color="#ba2731">
+									Remove
+								</Label>
+							</View>
+							<View layout="horizontal" right="3" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" >
+								<Label id="lblCardType"  color="#212c38" class="large" touchEnabled="false">
+								</Label>
+								<Label left="3" class="bold">
+									- *
+								</Label>
+								<Label id="lblLast4" class="bold">
+									4242
+								</Label>
+							</View>
+							<Widget id="fa" src="com.mattmcfarland.fontawesome" instaParse="false" />
+						</View>
+						<View id="viewCashInfo" visible="false" width="90%"  borderWidth="1" borderColor="#ba2731" height="35" top="0">
+							<View layout="horizontal" left="3" width="Titanium.UI.SIZE" height="Titanium.UI.SIZE"
+							onClick="removeCash"
+							>
+								<Label touchEnabled="false" left="3" width="Titanium.UI.SIZE" icon="fa-times-circle" class="large" color="#ba2731" />
+								<Label touchEnabled="false" left="3" class="bold" color="#ba2731">
+									Remove
+								</Label>
+							</View>
+							<View layout="horizontal" right="3" height="Titanium.UI.SIZE" width="Titanium.UI.SIZE" >
+								<Label icon="fa-money" color="#27ba31" class="large" touchEnabled="false">
+								</Label>
+								<Label left="3" class="bold">
+									CASH
+								</Label>
+							</View>
+							<Widget id="faCash" src="com.mattmcfarland.fontawesome" instaParse="true" />
+						</View>
+						<View id="viewPaymentType" layout="vertical" top="0" height="Titanium.UI.SIZE">
+							<Widget src="bpc.button" id="btnSelectCreditCard" top="0" height="35" onClick="addCreditCard"
+							faicon="fa-credit-card" text="Select Credit Card" borderWidth="0" backgroundColor="#ba2731"
+							class="redButton normal"  />
+							<Widget src="bpc.button" id="btnSelectCash" top="3" height="35" onClick="addCashPayment"
+							faicon="fa-money" text="Pay Cash at Pickup" borderWidth="0"
+							class="greenButton normal"  />
+							<Widget src="bpc.button" id="btn_paypal" top="3" height="35" onClick="addPaymentPaypal"
+							faicon="fa-paypal" text="Paypal" borderWidth="0"
+							class="greenButton normal" backgroundColor="#217cb6"/>
+							<!-- <Widget src="bpc.button" id="btn_applePay" top="3" height="35" onClick="addPaymentApplePay"
+							faicon="fa-apple" text="Apple Pay" borderWidth="0"
+							class="greenButton normal" backgroundColor="#832f85"/> -->
+						</View>
+					</View>
+					<View height="15">
+					</View>
+				</View>
+			</View>
+		</ScrollView>
+		<View id="notificationView" opacity="0" visible="false" height="40" bottom="50" borderWidth="1" backgroundColor="#ba2731">
+			<Label id="lblMsg" color="white">
+				NOTIFICATIONS APPEAR HERE
+			</Label>
+		</View>
+		<View id="cartActionsView" height="50" bottom="0" borderWidth="0" visible="false">
+			<Widget src="bpc.button" id="btnSubmit" height="40" visible="true" onClick="submit"
+			faicon="fa-share" text="Submit Order" width="80%" borderWidth="0" backgroundColor="#20283e"
+			class="loginButton" />
+		</View>
+		<View id="loadingView" visible="false"  top="0" left="0" width="100%" height="100%">
+			<View backgroundColor="black" opacity="0.6">
+			</View>
+			<Label color="white" id="lblLoading">
+				LOADING...
+			</Label>
+		</View>
+	</Window>
+</Alloy>
