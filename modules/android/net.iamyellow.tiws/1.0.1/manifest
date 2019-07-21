@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.1
+apiversion: 2
+architectures: armeabi armeabi-v7a x86
+description: socket_io_extended
+author: Amar Domkawle
+license: Specify your license
+copyright: Copyright (c) 2017 by Your Company
+
+# these should not be edited
+name: socket_io_extended
+moduleid: net.iamyellow.tiws
+guid: 81e0dfea-cc8f-4b95-9b41-67e58fc4fe40
+platform: android
+minsdk: 5.5.1.GA

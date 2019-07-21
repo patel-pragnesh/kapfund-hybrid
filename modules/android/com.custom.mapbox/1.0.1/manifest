@@ -1,0 +1,19 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.1
+apiversion: 3
+architectures: armeabi armeabi-v7a x86
+description: android_mapbox
+author: Amar Domkawle
+license: Specify your license
+copyright: DMDAgency
+
+# these should not be edited
+name: android_mapbox
+moduleid: com.custom.mapbox
+guid: d6851462-9271-4742-a661-8d991948c01e
+platform: android
+minsdk: 6.0.4.GA
+respackage: com.mapbox.mapboxsdk
