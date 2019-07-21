@@ -1,0 +1,21 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.1
+apiversion: 2
+description: Wrapper for Mapbox iOS SDK
+author: Amar Domkawle
+license: Specify your license
+copyright: @Amar Domkawle
+
+
+# these should not be edited
+name: CustomMapbox
+moduleid: com.custom.mapbox
+guid: 5a08cfac-1579-493a-b1a5-f4a1bfec5c6d
+platform: iphone
+minsdk: 6.0.0.GA
+
+ios/manifest:
+architectures: armv7 arm64 i386 x86_64
